@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İyi Ki Doğdun Sudiş! ✨</title>
+    <!-- Animasyon kütüphanesi (AOS) -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- Modern ve Şık Yazı Fontları -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #0b0c10;
+            color: #c5c6c7;
+            overflow-x: hidden;
+        }
+
+        section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 20px;
+        }
+
+        .container {
+            display: flex;
+            max-width: 1000px;
+            width: 100%;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+        }
+
+        .container.reversed {
+            flex-direction: row-reverse;
+        }
+
+        /* 1. GİRİŞ (HERO) EKRANI */
+        .hero {
+            background: linear-gradient(rgba(11, 12, 16, 0.85), #0b0c10), url('https://picsum.photos/id/433/1920/1080') no-repeat center center/cover;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-content h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4.5rem;
+            color: #fff;
+            margin-bottom: 20px;
+            text-shadow: 0 0 15px rgba(69, 243, 255, 0.6);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            color: #45f3ff;
+            letter-spacing: 1px;
+        }
+
+        .scroll-down {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2.5rem;
+            color: #45f3ff;
+            animation: bounce 2s infinite;
+        }
+
+        /* 2. HİKAYE VE RESİM BÖLÜMLERİ */
+        .image-box {
+            position: relative;
+        }
+
+        .image-box img {
+            max-width: 100%;
+            width: 360px;
+            height: 480px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(69, 243, 255, 0.15);
+            border: 2px solid rgba(69, 243, 255, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .image-box img:hover {
+            transform: scale(1.03);
+        }
+
+        .text-box {
+            flex: 1;
+        }
+
+        .text-box h2 {
+            font-size: 2.5rem;
+            color: #fff;
+            margin-bottom: 25px;
+            border-left: 4px solid #45f3ff;
+            padding-left: 15px;
+        }
+
+        .text-box p {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: #a4a7ab;
+        }
+
+        /* 3. MÜZİK BÖLÜMÜ (SPOTIFY ALANI) */
+        .music-section {
+            background: linear-gradient(#0b0c10, #12141c, #0b0c10);
+        }
+
+        .spotify-iframe-container {
+            width: 100%;
+            max-width: 360px;
+            box-shadow: 0 15px 35px rgba(30, 215, 96, 0.15);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        /* 4. KAPANIŞ EKRANI */
+        .closing-section {
+            background: linear-gradient(#0b0c10, rgba(11, 12, 16, 0.9)), url('https://picsum.photos/id/1016/1920/1080') no-repeat center center/cover;
+            text-align: center;
+        }
+
+        .closing-content h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 5rem;
+            color: #45f3ff;
+            margin-bottom: 25px;
+            text-shadow: 0 0 10px rgba(69, 243, 255, 0.4);
+        }
+
+        .closing-content p {
+            font-size: 1.3rem;
+            max-width: 650px;
+            margin: 0 auto;
+            color: #fff;
+            line-height: 1.8;
+        }
+
+        /* ANİMASYON EFEKTLERİ */
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
+            40% { transform: translateY(-15px) translateX(-50%); }
+            60% { transform: translateY(-7px) translateX(-50%); }
+        }
+
+        .fade-in {
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .fade-in-delayed {
+            animation: fadeIn 2.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* MOBİL CİHAZLAR İÇİN UYUMLULUK */
+        @media (max-width: 768px) {
+            .container, .container.reversed {
+                flex-direction: column;
+                text-align: center;
+                gap: 30px;
+            }
+            .image-box img, .spotify-iframe-container {
+                width: 100%;
+                max-width: 320px;
+                height: 400px;
+            }
+            .hero-content h1 { font-size: 3rem; }
+            .closing-content h2 { font-size: 3.5rem; }
+            .text-box h2 { font-size: 1.8rem; text-align: center; border-left: none; padding-left: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. BÖLÜM: GİRİŞ (Aşağı doğru kayma işareti var) -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="fade-in">İyi ki doğdun Sudiş... ✨</h1>
+            <p class="fade-in-delayed">Senin için küçük bir dijital zaman tüneli hazırladım. Aşağı kaydır...</p>
+            <div class="scroll-down">↓</div>
+        </div>
+    </section>
+
+    <!-- 2. BÖLÜM: BİRİNCİ FOTOĞRAF VE YAZI (Soldan sağa efektli) -->
+    <section class="story-section">
+        <div class="container">
+            <div class="image-box" data-aos="fade-right">
+                <!-- Otomatik Test Fotoğrafı 1 -->
+                <img src="https://picsum.photos/id/64/400/500" alt="Sudiş 1">
+            </div>
+            <div class="text-box" data-aos="fade-left">
+                <h2>Gülüşünle Başlayan Hikaye...</h2>
+                <p>Şehirler farklı, mesafeler uzak olabilir ama bu site tamamen sana ve senin o güzel enerjine ait. İlk günden beri hayatıma kattığın tüm güzellikler için teşekkür ederim. Trip atışların bile bu siteyi kurduracak kadar değerliymiş bak. 😉</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. BÖLÜM: MÜZİK VE İKİNCİ YAZI (Sağdan sola efektli, Spotify entegreli) -->
+    <section class="music-section">
+        <div class="container reversed">
+            <div class="text-box" data-aos="fade-right">
+                <h2>Bizim Şarkımız 🎵</h2>
+                <p>Her dinlediğimde aklıma seni getiren, aradaki mesafeleri tamamen yok eden o şarkıyı buraya bırakıyorum. Sitede aşağı doğru gezinirken arka planda eşlik etsin diye oynat butonuna basabilirsin...</p>
+            </div>
+            <div class="music-box" data-aos="fade-left">
+                <!-- Otomatik Şık Spotify Çalma Kutusu (Test Şarkısı Yüklü) -->
+                <div class="spotify-iframe-container">
+                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/119X9N7m96u667w9U6Ypbt?utm_source=generator&theme=1" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. BÖLÜM: BÜYÜK KAPANIŞ VE DOĞUM GÜNÜ MESAJI (Büyüyerek açılan efekt) -->
+    <section class="closing-section" data-aos="zoom-in">
+        <div class="closing-content">
+            <h2>Mutlu Yıllar 🎂</h2>
+            <p>Umarım bu yeni yaşında tüm dileklerin, kalbinden geçen her şey tek tek gerçekleşir. Nazınla, neşenle ve o güzel gülüşünle her zaman hayatımda olman dileğiyle. İyi ki doğdun, iyi ki seni tanımışım Sudiş!</p>
+        </div>
+    </section>
+
+    <!-- Animasyon kütüphanesinin (AOS) çalışması için gereken sihirli kod -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000, // Animasyonların açılış hızı (1 saniye)
+            once: true // Aşağı kaydırırken animasyon sadece 1 kere çalışsın
+        });
+    </script>
+</body>
+</html>
