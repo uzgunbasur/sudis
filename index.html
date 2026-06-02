@@ -3,245 +3,248 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>İyi Ki Doğdun Sudiş! ✨</title>
-    <!-- Animasyon kütüphanesi (AOS) -->
+    <title>Sudiş'e Özel ✨</title>
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <!-- Modern ve Şık Yazı Fontları -->
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background-color: #0d1117; color: #c9d1d9; overflow-x: hidden; scroll-behavior: smooth; }
+        
+        /* Ortak Bölüm Yapısı */
+        section { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 80px 20px; position: relative; }
+        .container { max-width: 1100px; width: 100%; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 40px; }
+        
+        h2 { font-size: 2.8rem; color: #fff; text-shadow: 0 0 10px rgba(0, 132, 255, 0.5); margin-bottom: 10px; }
+        p { font-size: 1.1rem; color: #8b949e; max-width: 700px; line-height: 1.8; }
 
-        body {
-            background-color: #0b0c10;
-            color: #c5c6c7;
-            overflow-x: hidden;
-        }
+        /* 1. GİRİŞ (Siyah & Mavi Neon) */
+        .hero { background: radial-gradient(circle at center, #001f3f 0%, #0d1117 70%); }
+        .hero h1 { font-family: 'Dancing Script', cursive; font-size: 5rem; color: #0084ff; text-shadow: 0 0 20px rgba(0,132,255,0.8); margin-bottom: 20px; }
+        .hero p { color: #fff; font-size: 1.3rem; }
+        .scroll-down { position: absolute; bottom: 40px; font-size: 2rem; color: #0084ff; animation: bounce 2s infinite; cursor: pointer; }
 
-        section {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 60px 20px;
-        }
+        /* 2. DOĞUM GÜNÜ & SPOTIFY */
+        .spotify-container { width: 100%; max-width: 500px; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,132,255,0.2); border: 1px solid rgba(0,132,255,0.3); }
 
-        .container {
-            display: flex;
-            max-width: 1000px;
-            width: 100%;
-            align-items: center;
-            justify-content: space-between;
-            gap: 50px;
-        }
+        /* 3. ZAMAN TÜNELİ / MESAFELER */
+        .stats-box { background: #161b22; padding: 30px; border-radius: 20px; border: 1px solid #21262d; box-shadow: 0 10px 20px rgba(0,0,0,0.3); margin-top: 20px; }
+        .counter-num { font-size: 3.5rem; color: #0084ff; font-weight: bold; text-shadow: 0 0 10px rgba(0,132,255,0.3); }
 
-        .container.reversed {
-            flex-direction: row-reverse;
-        }
+        /* 4. DİJİTAL DATE (BURGER & KOLA) */
+        .date-section { background: #12161f; }
+        .interactive-table { display: flex; justify-content: center; gap: 80px; margin-top: 30px; flex-wrap: wrap; }
+        .food-item { cursor: pointer; user-select: none; transition: transform 0.2s ease; position: relative; width: 220px; height: 220px; display: flex; align-items: center; justify-content: center; }
+        .food-item:active { transform: scale(0.95); }
+        .food-item img { max-width: 100%; max-height: 100%; object-fit: contain; }
+        .food-status { font-size: 0.9rem; color: #0084ff; margin-top: 10px; font-weight: bold; }
 
-        /* 1. GİRİŞ (HERO) EKRANI */
-        .hero {
-            background: linear-gradient(rgba(11, 12, 16, 0.85), #0b0c10), url('https://picsum.photos/id/433/1920/1080') no-repeat center center/cover;
-            text-align: center;
-            position: relative;
-        }
+        /* 5. KAHVE DATEİ */
+        .coffee-table { display: flex; justify-content: center; gap: 100px; margin-top: 40px; flex-wrap: wrap; }
+        .coffee-cup { width: 180px; text-align: center; cursor: pointer; transition: transform 0.2s; }
+        .coffee-cup:active { transform: scale(0.95); }
+        .coffee-cup img { width: 100%; height: auto; max-height: 250px; object-fit: contain; }
+        .coffee-name { font-weight: bold; margin-top: 15px; color: #fff; }
 
-        .hero-content h1 {
-            font-family: 'Dancing Script', cursive;
-            font-size: 4.5rem;
-            color: #fff;
-            margin-bottom: 20px;
-            text-shadow: 0 0 15px rgba(69, 243, 255, 0.6);
-        }
+        /* 6. FENERBAHÇE ÖZEL SAYFASI */
+        .fb-section { background: linear-gradient(135deg, #00235c 0%, #12161f 50%, #f7c900 100%); position: relative; }
+        .fb-section::before { content: ""; position: absolute; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.4); z-index: 1; }
+        .fb-container { z-index: 2; }
+        .fb-text { color: #f7c900 !important; text-shadow: 0 2px 4px rgba(0,0,0,0.8); font-weight: bold; }
+        .fb-title { color: #fff; text-shadow: 0 0 20px #f7c900; font-size: 3.5rem; }
 
-        .hero-content p {
-            font-size: 1.2rem;
-            color: #45f3ff;
-            letter-spacing: 1px;
-        }
+        /* Animasyonlar */
+        @keyframes bounce { 0%, 20%, 50%, 80%, 100% { transform: translateY(0); } 40% { transform: translateY(-15px); } 60% { transform: translateY(-7px); } }
 
-        .scroll-down {
-            position: absolute;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 2.5rem;
-            color: #45f3ff;
-            animation: bounce 2s infinite;
-        }
-
-        /* 2. HİKAYE VE RESİM BÖLÜMLERİ */
-        .image-box {
-            position: relative;
-        }
-
-        .image-box img {
-            max-width: 100%;
-            width: 360px;
-            height: 480px;
-            object-fit: cover;
-            border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(69, 243, 255, 0.15);
-            border: 2px solid rgba(69, 243, 255, 0.3);
-            transition: transform 0.3s ease;
-        }
-
-        .image-box img:hover {
-            transform: scale(1.03);
-        }
-
-        .text-box {
-            flex: 1;
-        }
-
-        .text-box h2 {
-            font-size: 2.5rem;
-            color: #fff;
-            margin-bottom: 25px;
-            border-left: 4px solid #45f3ff;
-            padding-left: 15px;
-        }
-
-        .text-box p {
-            font-size: 1.1rem;
-            line-height: 1.9;
-            color: #a4a7ab;
-        }
-
-        /* 3. MÜZİK BÖLÜMÜ (SPOTIFY ALANI) */
-        .music-section {
-            background: linear-gradient(#0b0c10, #12141c, #0b0c10);
-        }
-
-        .spotify-iframe-container {
-            width: 100%;
-            max-width: 360px;
-            box-shadow: 0 15px 35px rgba(30, 215, 96, 0.15);
-            border-radius: 12px;
-            overflow: hidden;
-        }
-
-        /* 4. KAPANIŞ EKRANI */
-        .closing-section {
-            background: linear-gradient(#0b0c10, rgba(11, 12, 16, 0.9)), url('https://picsum.photos/id/1016/1920/1080') no-repeat center center/cover;
-            text-align: center;
-        }
-
-        .closing-content h2 {
-            font-family: 'Dancing Script', cursive;
-            font-size: 5rem;
-            color: #45f3ff;
-            margin-bottom: 25px;
-            text-shadow: 0 0 10px rgba(69, 243, 255, 0.4);
-        }
-
-        .closing-content p {
-            font-size: 1.3rem;
-            max-width: 650px;
-            margin: 0 auto;
-            color: #fff;
-            line-height: 1.8;
-        }
-
-        /* ANİMASYON EFEKTLERİ */
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
-            40% { transform: translateY(-15px) translateX(-50%); }
-            60% { transform: translateY(-7px) translateX(-50%); }
-        }
-
-        .fade-in {
-            animation: fadeIn 1.5s ease-out;
-        }
-
-        .fade-in-delayed {
-            animation: fadeIn 2.5s ease-out;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* MOBİL CİHAZLAR İÇİN UYUMLULUK */
         @media (max-width: 768px) {
-            .container, .container.reversed {
-                flex-direction: column;
-                text-align: center;
-                gap: 30px;
-            }
-            .image-box img, .spotify-iframe-container {
-                width: 100%;
-                max-width: 320px;
-                height: 400px;
-            }
-            .hero-content h1 { font-size: 3rem; }
-            .closing-content h2 { font-size: 3.5rem; }
-            .text-box h2 { font-size: 1.8rem; text-align: center; border-left: none; padding-left: 0; }
+            .interactive-table { gap: 40px; }
+            .coffee-table { gap: 40px; }
+            .hero h1 { font-size: 3.5rem; }
+            h2 { font-size: 2rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- 1. BÖLÜM: GİRİŞ (Aşağı doğru kayma işareti var) -->
+    <!-- 1. GİRİŞ EKRANI -->
     <section class="hero">
-        <div class="hero-content">
+        <div class="container">
             <h1 class="fade-in">İyi ki doğdun Sudiş... ✨</h1>
-            <p class="fade-in-delayed">Senin için küçük bir dijital zaman tüneli hazırladım. Aşağı kaydır...</p>
+            <p class="fade-in-delayed">Aramızdaki kilometrelerin sana özel bir dünya kurmama engel olamayacağını biliyordun, değil mi?</p>
+            <p style="font-size: 1rem; color: #8b949e; margin-top: 10px;">Senin için hazırladığım dijital randevumuza davetlisiniz. Aşağı kaydır...</p>
             <div class="scroll-down">↓</div>
         </div>
     </section>
 
-    <!-- 2. BÖLÜM: BİRİNCİ FOTOĞRAF VE YAZI (Soldan sağa efektli) -->
-    <section class="story-section">
-        <div class="container">
-            <div class="image-box" data-aos="fade-right">
-                <!-- Otomatik Test Fotoğrafı 1 -->
-                <img src="https://picsum.photos/id/64/400/500" alt="Sudiş 1">
-            </div>
-            <div class="text-box" data-aos="fade-left">
-                <h2>Gülüşünle Başlayan Hikaye...</h2>
-                <p>Şehirler farklı, mesafeler uzak olabilir ama bu site tamamen sana ve senin o güzel enerjine ait. İlk günden beri hayatıma kattığın tüm güzellikler için teşekkür ederim. Trip atışların bile bu siteyi kurduracak kadar değerliymiş bak. 😉</p>
+    <!-- 2. MESAJ VE SPOTIFY -->
+    <section id="msg-section">
+        <div class="container" data-aos="fade-up">
+            <h2>Yeni Yaşın Kutlu Olsun 🎂</h2>
+            <p>Umarım bu yeni yaşında yüzündeki o güzel gülüşün, tatlı nazın ve enerjin hiç eksik olmaz. Şehirlerimiz farklı, yan yana elini tutup kutlayamıyorum belki ama kalbimin nerede attığı belli. Sitede gezinirken arkada çalması için bizim şarkımızı da buraya bıraktım...</p>
+            
+            <div class="spotify-container">
+                <!-- BURAYA KENDİ SPOTIFY EMBED KODUNU KOYABİLİRSİN -->
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/119X9N7m96u667w9U6Ypbt?utm_source=generator&theme=1" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
             </div>
         </div>
     </section>
 
-    <!-- 3. BÖLÜM: MÜZİK VE İKİNCİ YAZI (Sağdan sola efektli, Spotify entegreli) -->
-    <section class="music-section">
-        <div class="container reversed">
-            <div class="text-box" data-aos="fade-right">
-                <h2>Bizim Şarkımız 🎵</h2>
-                <p>Her dinlediğimde aklıma seni getiren, aradaki mesafeleri tamamen yok eden o şarkıyı buraya bırakıyorum. Sitede aşağı doğru gezinirken arka planda eşlik etsin diye oynat butonuna basabilirsin...</p>
+    <!-- 3. ZAMAN TÜNELİ SAYAÇ -->
+    <section style="background: #0d1117;">
+        <div class="container" data-aos="zoom-in">
+            <h2>Mesafeler Sadece Bir Sayı... 📍</h2>
+            <p>İlk mesajlaştığımız o özel andan beri hayatımdasın. Günler geçiyor ama seninle geçen her saniye daha da güzelleşiyor.</p>
+            <div class="stats-box">
+                <p>İyi ki Yazmışım Dedirten O Günden Beri;</p>
+                <!-- Buradaki tarihi ilk mesajlaştığınız tarihe göre güncelleyebiliriz -->
+                <div class="counter-num" id="day-counter">Yükleniyor...</div>
+                <p style="margin-top: 10px; color: #0084ff;">Gündür hayatımdasın.</p>
             </div>
-            <div class="music-box" data-aos="fade-left">
-                <!-- Otomatik Şık Spotify Çalma Kutusu (Test Şarkısı Yüklü) -->
-                <div class="spotify-iframe-container">
-                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/119X9N7m96u667w9U6Ypbt?utm_source=generator&theme=1" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+    </section>
+
+    <!-- 4. İNTERAKTİF YEMEK DATEİ (BURGER & KOLA) -->
+    <section class="date-section">
+        <div class="container" data-aos="fade-up">
+            <h2>Madem Yan Yana Değiliz: Dijital Akşam Yemeği! 🍔🥤</h2>
+            <p>Karşı karşıya oturup yemek yiyemiyoruz diye üzülmek yok. Senin için masayı hazırladım! Siparişlerin geldi. Üzerlerine tıklayarak yiyip içebilirsin. Bakalım tamamen bitirebilecek misin? (Sesleri duymak için sesini açmayı unutma!)</p>
+            
+            <div class="interactive-table">
+                <!-- Burger Alanı -->
+                <div style="text-align: center;">
+                    <div class="food-item" id="burger-box" onclick="eatBurger()">
+                        <img id="burger-img" src="https://img.icons8.com/emoji/256/hamburger-emoji.png" alt="Burger">
+                    </div>
+                    <div class="food-status" id="burger-status">Sıcacık bir burger! (4 Isırık kaldı)</div>
+                </div>
+
+                <!-- Kola Alanı -->
+                <div style="text-align: center;">
+                    <div class="food-item" id="cola-box" onclick="drinkCola()">
+                        <img id="cola-img" src="https://img.icons8.com/plasticine/256/cola.png" alt="Kola Zero">
+                    </div>
+                    <div class="food-status" id="cola-status">Buz gibi Kola Zero! (4 Yudum kaldı)</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 4. BÖLÜM: BÜYÜK KAPANIŞ VE DOĞUM GÜNÜ MESAJI (Büyüyerek açılan efekt) -->
-    <section class="closing-section" data-aos="zoom-in">
-        <div class="closing-content">
-            <h2>Mutlu Yıllar 🎂</h2>
-            <p>Umarım bu yeni yaşında tüm dileklerin, kalbinden geçen her şey tek tek gerçekleşir. Nazınla, neşenle ve o güzel gülüşünle her zaman hayatımda olman dileğiyle. İyi ki doğdun, iyi ki seni tanımışım Sudiş!</p>
+    <!-- 5. KAHVE DATEİ BÖLÜMÜ -->
+    <section>
+        <div class="container" data-aos="fade-up">
+            <h2>Yemek bittiyse kahve moduna geçelim ☕</h2>
+            <p>Hesabı ben ödedim, şimdi kahvelerimizi yudumlama vakti. Tam senin sevdiğin gibi bir Ice Americano ve benim vazgeçilmezim Iced Caramel Latte. Tıklayarak kahveni azaltabilirsin!</p>
+            
+            <div class="coffee-table">
+                <div class="coffee-cup" onclick="drinkCoffee('sudis')">
+                    <img id="sudis-coffee" src="https://img.icons8.com/external-flat-icons-inmotus-design/256/external-Ice-Coffee-coffee-flat-icons-inmotus-design.png" alt="Ice Americano">
+                    <div class="coffee-name">Sudiş'in Ice Americano'su</div>
+                </div>
+                <div class="coffee-cup" onclick="drinkCoffee('enes')">
+                    <img id="enes-coffee" src="https://img.icons8.com/external-flat-icons-inmotus-design/256/external-Ice-Coffee-coffee-flat-icons-inmotus-design.png" style="filter: hue-rotate(45deg);" alt="Iced Caramel Latte">
+                    <div class="coffee-name">Enes'in Iced Caramel Latte'si</div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Animasyon kütüphanesinin (AOS) çalışması için gereken sihirli kod -->
+    <!-- 6. FENERBAHÇE ÖZEL BÖLÜMÜ -->
+    <section class="fb-section">
+        <div class="container fb-container" data-aos="zoom-in">
+            <h2 class="fb-title">Sarı Lacivert Sevdana Saygıyla... 💛💙</h2>
+            <p class="fb-text">Biliyorsun, ben sonuna kadar Galatasaraylıyım. Ama bugün senin günün... Senin o çılgın Fenerbahçe sevgini, maç izlerken verdiğin tepkileri bile o kadar çok seviyorum ki; sırf senin yüzün gülsün diye bu sayfayı tamamen sarı laciverte boyadım!</p>
+            <p style="color: #fff; margin-top: 20px; font-weight: bold; font-size: 1.2rem;">"Renklerimiz zıt olsa da kalbimiz aynı ritimde atıyor."</p>
+        </div>
+    </section>
+
+    <!-- SES ELEMENTLERİ -->
+    <audio id="bite-sound" src="bite.mp3" preload="auto"></audio>
+    <audio id="slurp-sound" src="slurp.mp3" preload="auto"></audio>
+
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-        AOS.init({
-            duration: 1000, // Animasyonların açılış hızı (1 saniye)
-            once: true // Aşağı kaydırırken animasyon sadece 1 kere çalışsın
-        });
+        AOS.init({ duration: 1000, once: true });
+
+        // GÜN SAYACI HESAPLAMA (Örn: 15 Ekim 2025'ten beri konuşuyor olun)
+        // Buradaki tarihi (Yıl, Ay-1, Gün) olarak değiştir. Ay kısmı 0'dan başlar (Ocak=0, Haziran=5 vb.)
+        const startDate = new Date(2025, 9, 15); 
+        const today = new Date();
+        const diffTime = Math.abs(today - startDate);
+        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+        document.getElementById('day-counter').innerText = diffDays;
+
+        // BURGER ISIRMA MEKANİZMASI
+        let burgerStage = 0;
+        const burgerImages = [
+            "https://img.icons8.com/emoji/256/hamburger-emoji.png", // Tam
+            "https://images.vectorhq.com/images/previews/20d/hamburger-clip-art-105153.png", // Yarım/Isırılmış (Geçici)
+            "https://img.icons8.com/colors/256/crumbs.png", // Kırıntı
+            "" // Bitti
+        ];
+
+        function eatBurger() {
+            if (burgerStage < 4) {
+                document.getElementById('bite-sound').play().catch(e => console.log("Ses çalma izni bekleniyor..."));
+                burgerStage++;
+                let box = document.getElementById('burger-box');
+                let status = document.getElementById('burger-status');
+                
+                if (burgerStage === 1) {
+                    box.style.transform = "scale(0.9) rotate(5deg)";
+                    status.innerText = "Mmm, ilk ısırık harika! (3 Isırık kaldı)";
+                } else if (burgerStage === 2) {
+                    document.getElementById('burger-img').src = "https://img.icons8.com/color/256/pancake.png"; // Şekil değişimi için geçici görsel
+                    status.innerText = "Yarısı bitti bile! (2 Isırık kaldı)";
+                } else if (burgerStage === 3) {
+                    document.getElementById('burger-img').src = "https://img.icons8.com/colors/256/crumbs.png";
+                    status.innerText = "Sadece kırıntılar kaldı! (1 Isırık kaldı)";
+                } else if (burgerStage === 4) {
+                    document.getElementById('burger-img').style.display = "none";
+                    status.innerText = "Afiyet olsun Sudiş, burgeri bitirdin! 🥳";
+                }
+            }
+        }
+
+        // KOLA İÇME MEKANİZMASI
+        let colaStage = 0;
+        function drinkCola() {
+            if (colaStage < 4) {
+                document.getElementById('slurp-sound').play().catch(e => console.log("Ses çalma izni bekleniyor..."));
+                colaStage++;
+                let img = document.getElementById('cola-img');
+                let status = document.getElementById('cola-status');
+                
+                if (colaStage === 1) {
+                    img.style.transform = "scaleY(0.85)";
+                    status.innerText = "Asitli ve buz gibi! (3 Yudum kaldı)";
+                } else if (colaStage === 2) {
+                    img.style.transform = "scaleY(0.6)";
+                    status.innerText = "Yarıladın Kola Zero'yu! (2 Yudum kaldı)";
+                } else if (colaStage === 3) {
+                    img.style.transform = "scaleY(0.3)";
+                    status.innerText = "Dipte azıcık kaldı, hüpürdet! (1 Yudum kaldı)";
+                } else if (colaStage === 4) {
+                    img.style.display = "none";
+                    status.innerText = "Kola tamamen bitti! Ahh, ferahlatıcı.";
+                }
+            }
+        }
+
+        // KAHVE İÇME MEKANİZMASI
+        let coffeStages = { sudis: 0, enes: 0 };
+        function drinkCoffee(who) {
+            if (coffeStages[who] < 3) {
+                document.getElementById('slurp-sound').play().catch(e => console.log("Ses çalma izni"));
+                coffeStages[who]++;
+                let img = document.getElementById(who + '-coffee');
+                
+                if (coffeStages[who] === 1) img.style.transform = "scale(0.8)";
+                else if (coffeStages[who] === 2) img.style.transform = "scale(0.6) opacity(0.7)";
+                else if (coffeStages[who] === 3) {
+                    img.style.display = "none";
+                }
+            }
+        }
     </script>
 </body>
 </html>
