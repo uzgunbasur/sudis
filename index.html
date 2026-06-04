@@ -10,68 +10,63 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
         body { background-color: #0d1117; color: #c9d1d9; overflow-x: hidden; scroll-behavior: smooth; }
         
-        /* HER BÖLÜMÜN ANA YAPISI */
         section { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 80px 20px; position: relative; }
         .container { max-width: 1100px; width: 100%; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 40px; }
         
         h2 { font-size: 2.8rem; color: #fff; text-shadow: 0 0 10px rgba(0, 132, 255, 0.5); margin-bottom: 10px; }
         p { font-size: 1.1rem; color: #8b949e; max-width: 700px; line-height: 1.8; }
 
-        /* 💥 SCROLL ANİMASYON SINIFLARI (Aşağı kaydırdıkça tetiklenecekler) */
-        .reveal {
-            position: relative;
-            opacity: 0;
-            transition: all 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Yaylanma efekti */
-        }
-        
-        /* Aşağıdan yukarı fırlama efekti */
-        .reveal.fade-bottom { transform: translateY(100px); }
-        /* Soldan sağa fırlama efekti */
-        .reveal.fade-left { transform: translateX(-150px); }
-        /* Sağdan sola fırlama efekti */
-        .reveal.fade-right { transform: translateX(150px); }
-        /* Yer çekimsiz büyüme efekti */
-        .reveal.gravity-zoom { transform: scale(0.5) translateY(50px); }
+        /* 🌀 GENEL REVEAL ALTYAPISI */
+        .reveal { opacity: 0; transition: all 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .reveal.active { opacity: 1; transform: translate(0) scale(1) rotate(0); }
 
-        /* Animasyon aktif olduğunda bu sınıflar devreye girecek */
-        .reveal.active {
-            opacity: 1;
-            transform: ease;
-            transform: translateX(0) translateY(0) scale(1);
-        }
-
-        /* 1. GİRİŞ (Siyah & Mavi Neon) */
+        /* 1. BÖLÜM: GİRİŞ */
         .hero { background: radial-gradient(circle at center, #001f3f 0%, #0d1117 70%); }
         .hero h1 { font-family: 'Dancing Script', cursive; font-size: 5rem; color: #0084ff; text-shadow: 0 0 20px rgba(0,132,255,0.8); margin-bottom: 20px; }
         .hero p { color: #fff; font-size: 1.3rem; }
         .scroll-down { position: absolute; bottom: 40px; font-size: 2rem; color: #0084ff; animation: bounce 2s infinite; cursor: pointer; }
 
-        /* 2. DOĞUM GÜNÜ & SPOTIFY */
+        /* 2. BÖLÜM: DOĞUM GÜNÜ & SPOTIFY (Yavaşça belirme) */
+        .reveal.fade-up { transform: translateY(50px); }
         .spotify-container { width: 100%; max-width: 500px; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,132,255,0.2); border: 1px solid rgba(0,132,255,0.3); margin-top: 25px; }
 
-        /* 3. ZAMAN TÜNELİ / MESAFELER */
+        /* 3. BÖLÜM: SAYAÇ (Dönerek büyüme) */
+        .reveal.counter-spin { transform: scale(0.3) rotate(-10deg); transition: all 1.5s cubic-bezier(0.34, 1.56, 0.64, 1); }
         .stats-box { background: #161b22; padding: 30px; border-radius: 20px; border: 1px solid #21262d; box-shadow: 0 10px 20px rgba(0,0,0,0.3); margin-top: 20px; }
         .counter-num { font-size: 3.5rem; color: #0084ff; font-weight: bold; text-shadow: 0 0 10px rgba(0,132,255,0.3); }
 
-        /* 4. DİJİTAL DATE (BURGER & KOLA) */
+        /* 4. BÖLÜM: YEMEK DATEİ (Yukarıdan Masaya Düşme Animasyonu) */
         .date-section { background: #12161f; }
+        .reveal.gravity-drop { transform: translateY(-150px) scale(0.8); transition: all 1s cubic-bezier(0.6, -0.28, 0.735, 0.045); }
+        .reveal.gravity-drop.active { transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1.5); /* Masaya vurma yaylanması */ }
+        
         .interactive-table { display: flex; justify-content: center; gap: 80px; margin-top: 30px; flex-wrap: wrap; }
         .food-item { cursor: pointer; user-select: none; transition: transform 0.1s ease; width: 220px; height: 220px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.02); border-radius: 20px; padding: 10px; border: 1px dashed rgba(0, 132, 255, 0.1); }
         .food-item:active { transform: scale(0.95); }
         .food-item img { max-width: 100%; max-height: 100%; object-fit: contain; }
         .food-status { font-size: 0.9rem; color: #0084ff; margin-top: 15px; font-weight: bold; min-height: 20px; }
 
-        /* 5. KAHVE DATEİ */
+        /* 5. BÖLÜM: KAHVE DATEİ (Karşılıklı Birbirine Doğru Kayma Animasyonu) */
+        .reveal.slide-from-left { transform: translateX(-200px); }
+        .reveal.slide-from-right { transform: translateX(200px); }
+        
         .coffee-table { display: flex; justify-content: center; gap: 100px; margin-top: 40px; flex-wrap: wrap; }
         .coffee-cup { width: 200px; text-align: center; cursor: pointer; user-select: none; }
         .coffee-cup img { width: 100%; height: auto; max-height: 250px; object-fit: contain; }
+        
+        /* 🤎 YEŞİL OLMA SORUNU ÇÖZÜLDÜ: Karamel Rengi Filtre Ayarı */
+        .caramel-filter { filter: hue-rotate(15deg) saturate(1.4) brightness(0.85); }
+        
         .coffee-name { font-weight: bold; margin-top: 15px; color: #fff; }
         .coffee-status { font-size: 0.85rem; color: #0084ff; margin-top: 5px; }
 
-        /* 6. FENERBAHÇE ÖZEL SAYFASI */
+        /* 6. BÖLÜM: FENERBAHÇE ÖZEL (Stadyum Meşalesi Parlama Animasyonu) */
         .fb-section { background: linear-gradient(135deg, #00235c 0%, #12161f 50%, #f7c900 100%); position: relative; }
         .fb-section::before { content: ""; position: absolute; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.45); z-index: 1; }
         .fb-container { z-index: 2; }
+        .reveal.stadium-glow { transform: scale(0.6); filter: blur(10px); transition: all 1.5s cubic-bezier(0.19, 1, 0.22, 1); }
+        .reveal.stadium-glow.active { filter: blur(0); }
+        
         .fb-text { color: #f7c900 !important; text-shadow: 0 2px 4px rgba(0,0,0,0.8); font-weight: bold; }
         .fb-title { color: #fff; text-shadow: 0 0 20px #f7c900; font-size: 3.5rem; }
 
@@ -90,31 +85,31 @@
     <!-- 1. GİRİŞ EKRANI -->
     <section class="hero">
         <div class="container">
-            <h1 class="reveal fade-bottom active">İyi ki doğdun Sudiş... ✨</h1>
-            <p class="reveal fade-bottom active" style="transition-delay: 0.3s;">Aramızdaki kilometrelerin sana özel bir dünya kurmama engel olamayacağını biliyordun, değil mi?</p>
-            <p class="reveal fade-bottom active" style="font-size: 1rem; color: #8b949e; margin-top: 10px; transition-delay: 0.6s;">Senin için hazırladığım dijital randevumuza davetlisiniz. Aşağı kaydır...</p>
+            <h1 class="reveal active">İyi ki doğdun Sudiş... ✨</h1>
+            <p class="reveal active" style="transition-delay: 0.3s;">Aramızdaki kilometrelerin sana özel bir dünya kurmama engel olamayacağını biliyordun, değil mi?</p>
+            <p class="reveal active" style="font-size: 1rem; color: #8b949e; margin-top: 10px; transition-delay: 0.6s;">Senin için hazırladığım dijital randevumuza davetlisiniz. Aşağı kaydır...</p>
             <div class="scroll-down">↓</div>
         </div>
     </section>
 
-    <!-- 2. MESAJ VE SPOTIFY -->
+    <!-- 2. MESAJ VE SPOTIFY (Klasik Aşağıdan Yukarı) -->
     <section id="msg-section">
-        <div class="container">
-            <h2 class="reveal fade-left">Yeni Yaşın Kutlu Olsun 🎂</h2>
-            <p class="reveal fade-right">Umarım bu yeni yaşında yüzündeki o güzel gülüşün, tatlı nazın ve enerjin hiç eksik olmaz. Şehirlerimiz farklı, yan yana elini tutup kutlayamıyorum belki ama kalbimin nerede attığı belli. Sitede gezinirken arkada çalması için bizim şarkımızı da buraya bıraktım...</p>
+        <div class="container reveal fade-up">
+            <h2>Yeni Yaşın Kutlu Olsun 🎂</h2>
+            <p>Umarım bu yeni yaşında yüzündeki o güzel gülüşün, tatlı nazın ve enerjin hiç eksik olmaz. Şehirlerimiz farklı, yan yana elini tutup kutlayamıyorum belki ama kalbimin nerede attığı belli. Sitede gezinirken arkada çalması için bizim şarkımızı da buraya bıraktım...</p>
             
-            <div class="spotify-container reveal gravity-zoom">
+            <div class="spotify-container">
                 <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/119X9N7m96u667w9U6Ypbt?utm_source=generator&theme=1" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
             </div>
         </div>
     </section>
 
-    <!-- 3. ZAMAN TÜNELİ SAYAÇ -->
+    <!-- 3. ZAMAN TÜNELİ SAYAÇ (Dönerek Yaylanma Efekti) -->
     <section style="background: #0d1117;">
-        <div class="container">
-            <h2 class="reveal fade-right">Mesafeler Sadece Bir Sayı... 📍</h2>
-            <p class="reveal fade-left">İlk mesajlaştığımız o özel andan beri hayatımdasın. Günler geçiyor ama seninle geçen her saniye daha da güzelleşiyor.</p>
-            <div class="stats-box reveal gravity-zoom">
+        <div class="container reveal counter-spin">
+            <h2>Mesafeler Sadece Bir Sayı... 📍</h2>
+            <p>İlk mesajlaştığımız o özel andan beri hayatımdasın. Günler geçiyor ama seninle geçen her saniye daha da güzelleşiyor.</p>
+            <div class="stats-box">
                 <p>İyi ki Yazmışım Dedirten O Günden Beri;</p>
                 <div class="counter-num" id="day-counter">Yükleniyor...</div>
                 <p style="margin-top: 10px; color: #0084ff;">Gündür hayatımdasın.</p>
@@ -122,23 +117,23 @@
         </div>
     </section>
 
-    <!-- 4. İNTERAKTİF YEMEK DATEİ (BURGER & KOLA) -->
+    <!-- 4. İNTERAKTİF YEMEK DATEİ (Masaya Düşme Efekti) -->
     <section class="date-section">
         <div class="container">
-            <h2 class="reveal fade-bottom">Madem Yan Yana Değiliz: Dijital Akşam Yemeği! 🍔🥤</h2>
-            <p class="reveal fade-bottom" style="transition-delay: 0.2s;">Karşı karşıya oturup yemek yiyemiyoruz diye üzülmek yok. Senin için masayı hazırladım! Siparişlerin geldi. Üzerlerine tıklayarak yiyip içebilirsin.</p>
+            <h2 class="reveal fade-up">Madem Yan Yana Değiliz: Dijital Akşam Yemeği! 🍔🥤</h2>
+            <p class="reveal fade-up" style="transition-delay: 0.2s;">Karşı karşıya oturup yemek yiyemiyoruz diye üzülmek yok. Senin için masayı hazırladım! Siparişlerin geldi. Üzerlerine tıklayarak yiyip içebilirsin.</p>
             
             <div class="interactive-table">
-                <!-- Burger Alanı -->
-                <div style="text-align: center;" class="reveal fade-left" style="transition-delay: 0.4s;">
+                <!-- Burger -->
+                <div style="text-align: center;" class="reveal gravity-drop">
                     <div class="food-item" onclick="eatBurger()">
                         <img id="burger-img" src="burger-full.png" alt="Burger">
                     </div>
                     <div class="food-status" id="burger-status">Sıcacık bir burger! (4 Isırık kaldı)</div>
                 </div>
 
-                <!-- Kola Alanı -->
-                <div style="text-align: center;" class="reveal fade-right" style="transition-delay: 0.6s;">
+                <!-- Kola -->
+                <div style="text-align: center;" class="reveal gravity-drop" style="transition-delay: 0.2s;">
                     <div class="food-item" onclick="drinkCola()">
                         <img id="cola-img" src="cola-full.png" alt="Kola Zero">
                     </div>
@@ -148,22 +143,23 @@
         </div>
     </section>
 
-    <!-- 5. KAHVE DATEİ BÖLÜMÜ -->
+    <!-- 5. KAHVE DATEİ BÖLÜMÜ (Karşılıklı Birbirine Doğru Kayma Efekti) -->
     <section>
         <div class="container">
-            <h2 class="reveal fade-bottom">Yemek bittiyse kahve moduna geçelim ☕</h2>
-            <p class="reveal fade-bottom" style="transition-delay: 0.2s;">Hesabı ben ödedim, şimdi kahvelerimizi yudumlama vakti. Tam senin sevdiğin gibi bir Ice Americano ve benim vazgeçilmezim Iced Caramel Latte.</p>
+            <h2 class="reveal fade-up">Yemek bittiyse kahve moduna geçelim ☕</h2>
+            <p class="reveal fade-up" style="transition-delay: 0.2s;">Hesabı ben ödedim, şimdi kahvelerimizi yudumlama vakti. Tam senin sevdiğin gibi bir Ice Americano ve benim vazgeçilmezim Iced Caramel Latte.</p>
             
             <div class="coffee-table">
-                <!-- Sudiş Kahve -->
-                <div class="coffee-cup reveal fade-left" style="transition-delay: 0.4s;" onclick="drinkCoffee('sudis')">
+                <!-- Sudiş Kahve (Soldan Geliyor) -->
+                <div class="coffee-cup reveal slide-from-left" onclick="drinkCoffee('sudis')">
                     <img id="sudis-coffee" src="coffee-full.png" alt="Ice Americano">
                     <div class="coffee-name">Sudiş'in Ice Americano'su</div>
                     <div class="coffee-status" id="sudis-coffee-status">Dolu (3 Yudum kaldı)</div>
                 </div>
-                <!-- Enes Kahve -->
-                <div class="coffee-cup reveal fade-right" style="transition-delay: 0.6s;" onclick="drinkCoffee('enes')">
-                    <img id="enes-coffee" src="coffee-full.png" style="filter: hue-rotate(50deg);" alt="Iced Caramel Latte">
+                <!-- Enes Kahve (Sağdan Geliyor) -->
+                <div class="coffee-cup reveal slide-from-right" onclick="drinkCoffee('enes')">
+                    <!-- Düzenlenen Karamel Sınıfı Eklendi -->
+                    <img id="enes-coffee" class="caramel-filter" src="coffee-full.png" alt="Iced Caramel Latte">
                     <div class="coffee-name">Enes'in Iced Caramel Latte'si</div>
                     <div class="coffee-status" id="enes-coffee-status">Dolu (3 Yudum kaldı)</div>
                 </div>
@@ -171,12 +167,12 @@
         </div>
     </section>
 
-    <!-- 6. FENERBAHÇE ÖZEL BÖLÜMÜ -->
+    <!-- 6. FENERBAHÇE ÖZEL BÖLÜMÜ (Meşale Parlaması Efekti) -->
     <section class="fb-section">
-        <div class="container fb-container">
-            <h2 class="reveal gravity-zoom fb-title">Sarı Lacivert Sevdana Saygıyla... 💛💙</h2>
-            <p class="reveal fade-bottom fb-text" style="transition-delay: 0.3s;">Biliyorsun, ben sonuna kadar Galatasaraylıyım. Ama bugün senin günün... Senin o çılgın Fenerbahçe sevgini, maç izlerken verdiğin tepkileri bile o kadar çok seviyorum ki; sırf senin yüzün gülsün diye bu sayfayı tamamen sarı laciverte boyadım!</p>
-            <p class="reveal fade-bottom" style="color: #fff; margin-top: 20px; font-weight: bold; font-size: 1.2rem; transition-delay: 0.5s;">"Renklerimiz zıt olsa da kalbimiz aynı ritimde atıyor."</p>
+        <div class="container fb-container reveal stadium-glow">
+            <h2 class="fb-title">Sarı Lacivert Sevdana Saygıyla... 💛💙</h2>
+            <p class="fb-text">Biliyorsun, ben sonuna kadar Galatasaraylıyım. Ama bugün senin günün... Senin o çılgın Fenerbahçe sevgini, maç izlerken verdiğin tepkileri bile o kadar çok seviyorum ki; sırf senin yüzün gülsün diye bu sayfayı tamamen sarı laciverte boyadım!</p>
+            <p style="color: #fff; margin-top: 20px; font-weight: bold; font-size: 1.2rem;">"Renklerimiz zıt olsa da kalbimiz aynı ritimde atıyor."</p>
         </div>
     </section>
 
@@ -185,13 +181,13 @@
     <audio id="slurp-sound" src="slurp.MP3" preload="auto"></audio>
 
     <script>
-        // 🌀 CHROME/SAFARI İÇİN JAVASCRIPT SCROLL REVEAL MOTORU
+        // 🌀 GELİŞMİŞ SCROLL TAKİP MOTORU
         function reveal() {
             var reveals = document.querySelectorAll(".reveal");
             for (var i = 0; i < reveals.length; i++) {
                 var windowHeight = window.innerHeight;
                 var elementTop = reveals[i].getBoundingClientRect().top;
-                var elementVisible = 100; // Element kaç px ekrana girince animasyon patlasın?
+                var elementVisible = 120; // Tetiklenme hassasiyeti
                 
                 if (elementTop < windowHeight - elementVisible) {
                     reveals[i].classList.add("active");
@@ -199,16 +195,16 @@
             }
         }
         window.addEventListener("scroll", reveal);
-        reveal(); // İlk açılışta kontrol et
+        reveal(); // İlk yüklemede çalıştır
 
-        // GÜN SAYACI HESAPLAMA
+        // GÜN SAYACI
         const startDate = new Date(2025, 9, 15); 
         const today = new Date();
         const diffTime = Math.abs(today - startDate);
         const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
         document.getElementById('day-counter').innerText = diffDays;
 
-        // BURGER MEKANİZMASI
+        // BURGER SCRIPT
         let burgerStage = 0;
         const burgerImages = ["burger-full.png", "burger-1.png", "burger-2.png", "burger-3.png"];
         function eatBurger() {
@@ -229,7 +225,7 @@
             }
         }
 
-        // KOLA MEKANİZMASI
+        // KOLA SCRIPT
         let colaStage = 0;
         const colaImages = ["cola-full.png", "cola-1.png", "cola-2.png", "cola-3.png"];
         function drinkCola() {
@@ -250,7 +246,7 @@
             }
         }
 
-        // KAHVE MEKANİZMASI
+        // KAHVE SCRIPT
         let coffeeStages = { sudis: 0, enes: 0 };
         const coffeeImages = ["coffee-full.png", "coffee-half.png", "coffee-low.png"];
         function drinkCoffee(who) {
