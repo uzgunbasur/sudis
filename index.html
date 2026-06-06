@@ -27,15 +27,18 @@
       --fb-yellow: #ffe600;
       --fb-navy: #001c55;
     }
+
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
       -webkit-tap-highlight-color: transparent;
     }
+
     html {
       scroll-behavior: smooth;
     }
+
     body {
       background-color: var(--bg-dark);
       color: #ffffff;
@@ -43,6 +46,7 @@
       overflow-x: hidden;
       position: relative;
     }
+
     /* Custom Premium Scrollbar */
     ::-webkit-scrollbar {
       width: 8px;
@@ -58,6 +62,7 @@
       background: var(--neon-blue);
       box-shadow: var(--neon-blue-glow);
     }
+
     /* ==========================================
        2. INTERACTIVE GLOWING CURSOR
        ========================================== */
@@ -73,6 +78,7 @@
       box-shadow: 0 0 10px var(--neon-blue);
       transition: width 0.2s, height 0.2s, background-color 0.2s;
     }
+
     .custom-cursor-follower {
       width: 40px;
       height: 40px;
@@ -84,11 +90,13 @@
       z-index: 9998;
       transition: transform 0.08s ease-out, border-color 0.2s, width 0.2s, height 0.2s;
     }
+
     @media (max-width: 768px) {
       .custom-cursor, .custom-cursor-follower {
         display: none !important;
       }
     }
+
     /* ==========================================
        3. BACKGROUND GLOWING ORBS
        ========================================== */
@@ -102,6 +110,7 @@
       pointer-events: none;
       overflow: hidden;
     }
+
     .glow-orb {
       position: absolute;
       border-radius: 50%;
@@ -109,6 +118,7 @@
       opacity: 0.12;
       transition: all 2s ease;
     }
+
     .orb-1 {
       top: 10%;
       left: 15%;
@@ -117,6 +127,7 @@
       background: var(--neon-blue);
       animation: orb-move-1 25s infinite alternate ease-in-out;
     }
+
     .orb-2 {
       bottom: 15%;
       right: 10%;
@@ -125,6 +136,7 @@
       background: #0066ff;
       animation: orb-move-2 30s infinite alternate ease-in-out;
     }
+
     .orb-3 {
       top: 50%;
       left: 60%;
@@ -134,6 +146,7 @@
       opacity: 0.06;
       animation: orb-move-3 20s infinite alternate ease-in-out;
     }
+
     @keyframes orb-move-1 {
       0% { transform: translate(0, 0) scale(1); }
       50% { transform: translate(120px, 90px) scale(1.15); }
@@ -148,8 +161,9 @@
       0% { transform: translate(0, 0); }
       100% { transform: translate(-60px, 80px); }
     }
+
     /* ==========================================
-       4. NAVIGATION SCROLL DOTS (10 DOTS)
+       4. NAVIGATION SCROLL DOTS (11 DOTS)
        ========================================== */
     .scroll-nav {
       position: fixed;
@@ -161,6 +175,7 @@
       gap: 12px;
       z-index: 100;
     }
+
     .nav-dot {
       width: 8px;
       height: 8px;
@@ -170,15 +185,18 @@
       cursor: pointer;
       transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
+
     .nav-dot:hover {
       background: rgba(0, 240, 255, 0.6);
       transform: scale(1.3);
     }
+
     .nav-dot.active {
       background: var(--neon-blue);
       box-shadow: var(--neon-blue-glow);
       transform: scale(1.5);
     }
+
     /* ==========================================
        5. GENERAL SECTION LAYOUT
        ========================================== */
@@ -194,20 +212,24 @@
       box-sizing: border-box;
       z-index: 2;
     }
+
     /* ==========================================
        6. SECTION 1: HERO (GİRİŞ)
        ========================================== */
     .hero-section {
       background: linear-gradient(180deg, rgba(2, 0, 12, 0.5) 0%, rgba(5, 11, 36, 0.3) 100%);
     }
+
     .hero-container {
       text-align: center;
       max-width: 800px;
       z-index: 10;
     }
+
     .floating-element {
       animation: float 6s ease-in-out infinite;
     }
+
     .hero-title {
       font-size: clamp(2.5rem, 6vw, 4.5rem);
       font-weight: 900;
@@ -219,6 +241,7 @@
       text-shadow: 0 10px 30px rgba(0, 240, 255, 0.1);
       font-family: 'Outfit', sans-serif;
     }
+
     .hero-subtitle {
       font-size: clamp(1rem, 2.5vw, 1.4rem);
       color: #8892b0;
@@ -226,11 +249,13 @@
       font-weight: 400;
       line-height: 1.6;
     }
+
     @keyframes float {
       0% { transform: translateY(0px) rotate(0deg); }
       50% { transform: translateY(-15px) rotate(1deg); }
       100% { transform: translateY(0px) rotate(0deg); }
     }
+
     /* Scroll Down Indicator */
     .scroll-down {
       position: absolute;
@@ -248,21 +273,25 @@
       transition: color 0.3s;
       animation: bounce 2s infinite;
     }
+
     .scroll-down:hover {
       color: var(--neon-blue);
       text-shadow: var(--neon-blue-text);
     }
+
     @keyframes bounce {
       0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
       40% { transform: translateY(-10px); }
       60% { transform: translateY(-5px); }
     }
+
     /* ==========================================
        7. SECTION 2: DOĞUM GÜNÜ & SPOTIFY
        ========================================== */
     .spotify-section {
       background: linear-gradient(180deg, rgba(5, 11, 36, 0.3) 0%, rgba(2, 0, 12, 0.4) 100%);
     }
+
     .zoom-in-container {
       display: grid;
       grid-template-columns: 1.2fr 1fr;
@@ -274,16 +303,19 @@
       transform: scale(0.85);
       transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
     }
+
     .spotify-section.active .zoom-in-container {
       opacity: 1;
       transform: scale(1);
     }
+
     @media (max-width: 900px) {
       .zoom-in-container {
         grid-template-columns: 1fr;
         gap: 2.5rem;
       }
     }
+
     .letter-card {
       background: var(--bg-card);
       border: 1px solid var(--border-card);
@@ -293,6 +325,7 @@
       border-radius: 24px;
       box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4), inset 0 0 20px rgba(255, 255, 255, 0.01);
     }
+
     .card-badge {
       display: inline-flex;
       align-items: center;
@@ -307,6 +340,7 @@
       margin-bottom: 1.5rem;
       text-shadow: var(--neon-blue-text);
     }
+
     .letter-card h2 {
       font-size: clamp(1.8rem, 4vw, 2.4rem);
       margin-bottom: 1.5rem;
@@ -315,11 +349,13 @@
       -webkit-text-fill-color: transparent;
       font-weight: 700;
     }
+
     .letter-card p {
       font-size: 1.1rem;
       line-height: 1.8;
       color: #ccd6f6;
     }
+
     .spotify-card {
       border-radius: 20px;
       overflow: hidden;
@@ -327,18 +363,22 @@
       border: 1px solid rgba(255, 255, 255, 0.08);
       transition: transform 0.3s;
     }
+
     .spotify-card:hover {
       transform: translateY(-5px);
     }
+
     .spotify-card iframe {
       display: block;
     }
+
     /* ==========================================
        8. SECTION 3: ZAMAN TÜNELİ SAYAÇ
        ========================================== */
     .counter-section {
       background: linear-gradient(180deg, rgba(2, 0, 12, 0.4) 0%, rgba(5, 11, 36, 0.3) 100%);
     }
+
     .spin-container {
       max-width: 900px;
       width: 100%;
@@ -353,10 +393,12 @@
       transform: perspective(1000px) rotateY(-180deg) rotateX(15deg) scale(0.85);
       transition: opacity 1.3s cubic-bezier(0.16, 1, 0.3, 1), transform 1.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
+
     .counter-section.active .spin-container {
       opacity: 1;
       transform: perspective(1000px) rotateY(0deg) rotateX(0deg) scale(1);
     }
+
     .counter-header h2 {
       font-size: clamp(2rem, 5vw, 2.8rem);
       margin-bottom: 3rem;
@@ -364,17 +406,20 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
+
     .counter-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 1.5rem;
     }
+
     @media (max-width: 600px) {
       .counter-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 1rem;
       }
     }
+
     .counter-box {
       background: linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
       border: 1px solid rgba(255, 255, 255, 0.05);
@@ -385,6 +430,7 @@
       position: relative;
       overflow: hidden;
     }
+
     .counter-box::after {
       content: '';
       position: absolute;
@@ -397,13 +443,16 @@
       opacity: 0.2;
       transition: opacity 0.3s;
     }
+
     .counter-box:hover {
       transform: translateY(-5px);
       border-color: rgba(0, 240, 255, 0.25);
     }
+
     .counter-box:hover::after {
       opacity: 0.8;
     }
+
     .counter-num {
       display: block;
       font-size: clamp(2rem, 6vw, 3.5rem);
@@ -412,23 +461,27 @@
       text-shadow: var(--neon-blue-glow);
       margin-bottom: 0.5rem;
     }
+
     .counter-label {
       font-size: 0.8rem;
       letter-spacing: 2px;
       color: #8892b0;
       font-weight: 600;
     }
+
     /* ==========================================
-       9. SECTION 4: İLK GÜNÜN ANISI (CHAT LOG)
+       9. SECTION 6: SOHBET LOGU (İLK GÜNÜN ANISI)
        ========================================== */
     .chat-section {
       background: linear-gradient(180deg, rgba(2, 0, 12, 0.4) 0%, rgba(5, 11, 36, 0.3) 100%);
     }
+
     .chat-wrapper {
       max-width: 700px;
       width: 100%;
       margin: 0 auto;
     }
+
     .chat-container {
       background: rgba(2, 0, 16, 0.7);
       border: 1px solid rgba(0, 240, 255, 0.15);
@@ -437,6 +490,7 @@
       box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
       backdrop-filter: blur(15px);
     }
+
     .chat-header {
       background: rgba(0, 240, 255, 0.05);
       border-bottom: 1px solid rgba(0, 240, 255, 0.1);
@@ -448,6 +502,7 @@
       align-items: center;
       gap: 10px;
     }
+
     .status-dot {
       width: 8px;
       height: 8px;
@@ -456,12 +511,14 @@
       display: inline-block;
       box-shadow: 0 0 8px #22c55e;
     }
+
     .chat-messages {
       padding: 2.5rem;
       display: flex;
       flex-direction: column;
       gap: 2rem;
     }
+
     .chat-bubble {
       max-width: 85%;
       padding: 1.2rem 1.5rem;
@@ -470,6 +527,7 @@
       position: relative;
       font-size: 1.05rem;
     }
+
     .chat-left {
       align-self: flex-start;
       background: rgba(255, 255, 255, 0.03);
@@ -479,6 +537,7 @@
       opacity: 0;
       transform: translateX(-100px);
     }
+
     .chat-right {
       align-self: flex-end;
       background: rgba(0, 240, 255, 0.05);
@@ -489,49 +548,59 @@
       opacity: 0;
       transform: translate(100px, -100px);
     }
+
     .chat-sender {
       font-size: 0.8rem;
       font-weight: 700;
       margin-bottom: 6px;
       letter-spacing: 1px;
     }
+
     .chat-left .chat-sender {
       color: #ffe600;
     }
+
     .chat-right .chat-sender {
       color: var(--neon-blue);
       text-shadow: var(--neon-blue-text);
     }
+
     /* Animations Trigger */
     .chat-section.active .chat-left {
       animation: chatSlideLeft 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
     }
+
     .chat-section.active .chat-right {
       animation: chatDropRight 0.8s cubic-bezier(0.25, 1, 0.5, 1) 0.5s forwards;
     }
+
     @keyframes chatSlideLeft {
       to {
         opacity: 1;
         transform: translateX(0);
       }
     }
+
     @keyframes chatDropRight {
       to {
         opacity: 1;
         transform: translate(0, 0);
       }
     }
+
     /* ==========================================
-       10. SECTION 5: DİJİTAL YEMEK DATE'İ
+       10. SECTION 4: DİJİTAL YEMEK DATE'İ
        ========================================== */
     .food-section {
       background: linear-gradient(180deg, rgba(5, 11, 36, 0.3) 0%, rgba(2, 0, 12, 0.4) 100%);
     }
+
     .food-container {
       max-width: 1000px;
       width: 100%;
       text-align: center;
     }
+
     .table-container {
       background: rgba(2, 0, 16, 0.45);
       border: 1px solid rgba(0, 240, 255, 0.05);
@@ -540,6 +609,7 @@
       box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
       position: relative;
     }
+
     .picnic-table {
       display: flex;
       justify-content: center;
@@ -547,6 +617,7 @@
       position: relative;
       align-items: flex-end;
     }
+
     @media (max-width: 768px) {
       .picnic-table {
         flex-direction: column;
@@ -557,6 +628,7 @@
         padding: 4rem 1.5rem;
       }
     }
+
     .table-container::after {
       content: '';
       position: absolute;
@@ -569,11 +641,13 @@
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5), 0 0 15px rgba(0, 240, 255, 0.15);
       border: 1px solid rgba(0, 240, 255, 0.1);
     }
+
     @media (max-width: 768px) {
       .table-container::after {
         display: none;
       }
     }
+
     /* Gravity Bounce scroll animation initial states */
     .gravity-item {
       position: relative;
@@ -584,12 +658,15 @@
       opacity: 0;
       transform: translateY(-300px);
     }
+
     .food-section.active .gravity-item {
       animation: gravityBounceDrop 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
     }
+
     .food-section.active .gravity-item:nth-child(2) {
       animation-delay: 0.25s;
     }
+
     @keyframes gravityBounceDrop {
       0% {
         opacity: 0;
@@ -610,6 +687,7 @@
         transform: translateY(0);
       }
     }
+
     .plate-base {
       width: 180px;
       height: 35px;
@@ -621,6 +699,7 @@
       z-index: 1;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4), inset 0 0 10px rgba(0, 240, 255, 0.05);
     }
+
     .interactive-image-wrapper {
       width: 140px;
       height: 140px;
@@ -632,6 +711,7 @@
       z-index: 2;
       transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease;
     }
+
     .interactive-image-wrapper img {
       max-width: 100%;
       max-height: 100%;
@@ -639,13 +719,16 @@
       filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.5));
       transition: all 0.3s ease;
     }
+
     .interactive-image-wrapper.clickable:hover {
       transform: scale(1.08) translateY(-5px);
       cursor: pointer;
     }
+
     .interactive-image-wrapper.clickable:active {
       transform: scale(0.95);
     }
+
     .item-label {
       font-size: 0.95rem;
       font-weight: 600;
@@ -653,6 +736,7 @@
       z-index: 3;
       margin-top: 15px;
     }
+
     .refill-btn {
       margin-top: 15px;
       background: rgba(0, 240, 255, 0.08);
@@ -670,16 +754,19 @@
       pointer-events: none;
       transform: translateY(5px);
     }
+
     .refill-btn.show {
       opacity: 1;
       pointer-events: auto;
       transform: translateY(0);
     }
+
     .refill-btn:hover {
       background: rgba(0, 240, 255, 0.2);
       box-shadow: var(--neon-blue-glow);
       transform: translateY(-2px);
     }
+
     .svg-fallback {
       width: 100%;
       height: 100%;
@@ -688,18 +775,21 @@
       justify-content: center;
       transition: all 0.3s;
     }
+
     .fallback-svg {
       width: 110px;
       height: 110px;
       filter: drop-shadow(0 5px 12px rgba(0, 240, 255, 0.2));
       transition: all 0.3s;
     }
+
     /* ==========================================
-       11. SECTION 6: KİM BENİ NE KADAR TANIYOR? (QUIZ)
+       11. SECTION 5: KİM BENİ NE KADAR TANIYOR? (QUIZ)
        ========================================== */
     .quiz-section {
       background: linear-gradient(180deg, rgba(2, 0, 12, 0.4) 0%, rgba(5, 11, 36, 0.3) 100%);
     }
+
     .quiz-container {
       max-width: 800px;
       width: 100%;
@@ -714,14 +804,17 @@
       transform: perspective(1000px) rotateY(-180deg) rotateX(15deg) scale(0.85);
       transition: opacity 1.3s cubic-bezier(0.16, 1, 0.3, 1), transform 1.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
+
     .quiz-section.active .quiz-container {
       opacity: 1;
       transform: perspective(1000px) rotateY(0deg) rotateX(0deg) scale(1);
     }
+
     .quiz-card {
       margin-top: 2rem;
       transition: all 0.5s ease;
     }
+
     .question-text {
       font-size: 1.3rem;
       font-weight: 700;
@@ -729,18 +822,21 @@
       margin-bottom: 2rem;
       text-shadow: 0 2px 10px rgba(0,0,0,0.5);
     }
+
     .options-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 1.2rem;
       margin-bottom: 2rem;
     }
+
     @media (max-width: 600px) {
       .options-grid {
         grid-template-columns: 1fr;
         gap: 0.8rem;
       }
     }
+
     .option-btn {
       background: rgba(255, 255, 255, 0.03);
       border: 1px solid rgba(255, 255, 255, 0.08);
@@ -755,6 +851,7 @@
       position: relative;
       overflow: hidden;
     }
+
     .option-btn:hover {
       background: rgba(0, 240, 255, 0.05);
       border-color: rgba(0, 240, 255, 0.3);
@@ -762,9 +859,11 @@
       transform: translateY(-2px);
       box-shadow: 0 5px 15px rgba(0, 240, 255, 0.08);
     }
+
     .option-btn:active {
       transform: translateY(0);
     }
+
     .option-btn.correct {
       background: rgba(34, 197, 94, 0.15) !important;
       border-color: #22c55e !important;
@@ -772,25 +871,30 @@
       box-shadow: 0 0 15px rgba(34, 197, 94, 0.3);
       pointer-events: none;
     }
+
     .option-btn.wrong {
       background: rgba(239, 68, 68, 0.15) !important;
       border-color: #ef4444 !important;
       color: #f87171 !important;
       box-shadow: 0 0 15px rgba(239, 68, 68, 0.3);
     }
+
     .option-btn.disabled {
       opacity: 0.4;
       pointer-events: none;
     }
+
     /* Shake Animation */
     .shake {
       animation: buttonShake 0.4s ease-in-out;
     }
+
     @keyframes buttonShake {
       0%, 100% { transform: translateX(0); }
       20%, 60% { transform: translateX(-8px); }
       40% { transform: translateX(8px); }
     }
+
     .feedback-msg {
       font-size: 1.05rem;
       font-weight: 600;
@@ -798,14 +902,17 @@
       min-height: 24px;
       transition: all 0.3s;
     }
+
     .feedback-msg.correct-text {
       color: #4ade80;
       text-shadow: 0 0 10px rgba(74, 222, 128, 0.3);
     }
+
     .feedback-msg.wrong-text {
       color: #f87171;
       text-shadow: 0 0 10px rgba(248, 113, 113, 0.3);
     }
+
     .quiz-next-btn {
       background: linear-gradient(90deg, var(--neon-blue) 0%, #0077ff 100%);
       border: none;
@@ -824,26 +931,31 @@
       align-items: center;
       gap: 8px;
     }
+
     .quiz-next-btn.show {
       opacity: 1;
       pointer-events: auto;
       transform: translateY(0);
     }
+
     .quiz-next-btn:hover {
       transform: translateY(-3px);
       box-shadow: 0 8px 25px rgba(0, 240, 255, 0.5);
     }
+
     /* ==========================================
        12. SECTION 7: EN ÇOK KULLANDIKLARIMIZ (KELİME DÜNYASI)
        ========================================== */
     .words-section {
       background: linear-gradient(180deg, rgba(5, 11, 36, 0.3) 0%, rgba(2, 0, 12, 0.4) 100%);
     }
+
     .words-container {
       max-width: 1000px;
       width: 100%;
       text-align: center;
     }
+
     .words-header h2 {
       font-size: clamp(2rem, 5vw, 2.8rem);
       margin-bottom: 1rem;
@@ -851,11 +963,13 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
+
     .words-header p {
       color: #8892b0;
       font-size: 1.1rem;
       margin-bottom: 4rem;
     }
+
     .words-cloud {
       display: flex;
       flex-wrap: wrap;
@@ -866,6 +980,7 @@
       min-height: 250px;
       align-items: center;
     }
+
     .word-bubble {
       background: rgba(0, 240, 255, 0.02);
       border: 1px solid rgba(0, 240, 255, 0.15);
@@ -880,6 +995,21 @@
       cursor: pointer;
       user-select: none;
     }
+
+    .word-bubble.bubble-green {
+      background: rgba(34, 197, 94, 0.15) !important;
+      border-color: #22c55e !important;
+      color: #4ade80 !important;
+      box-shadow: 0 0 25px rgba(34, 197, 94, 0.6), inset 0 0 10px rgba(34, 197, 94, 0.1) !important;
+    }
+
+    .word-bubble.bubble-red {
+      background: rgba(239, 68, 68, 0.15) !important;
+      border-color: #ef4444 !important;
+      color: #f87171 !important;
+      box-shadow: 0 0 25px rgba(239, 68, 68, 0.6), inset 0 0 10px rgba(239, 68, 68, 0.1) !important;
+    }
+
     .bubble-w1 { animation: floatWord1 6s infinite alternate ease-in-out; }
     .bubble-w2 { animation: floatWord2 5.5s infinite alternate ease-in-out; }
     .bubble-w3 { animation: floatWord3 7s infinite alternate ease-in-out; }
@@ -887,6 +1017,7 @@
     .bubble-w5 { animation: floatWord5 5s infinite alternate ease-in-out; }
     .bubble-w6 { animation: floatWord6 7.5s infinite alternate ease-in-out; }
     .bubble-w7 { animation: floatWord7 6s infinite alternate ease-in-out; }
+
     @keyframes floatWord1 {
       0% { transform: translate(0, 0) rotate(0deg); }
       100% { transform: translate(12px, -15px) rotate(3deg); }
@@ -915,6 +1046,7 @@
       0% { transform: translate(0, 0) rotate(0deg); }
       100% { transform: translate(10px, -10px) rotate(3deg); }
     }
+
     .word-bubble:hover, .word-bubble:active {
       background: rgba(0, 240, 255, 0.1);
       border-color: var(--neon-blue);
@@ -923,12 +1055,14 @@
       transform: scale(1.15) rotate(0deg) !important;
       animation-play-state: paused;
     }
+
     /* ==========================================
        13. SECTION 8: SİNEMA / İZLEME SEANSI
        ========================================== */
     .cinema-section {
       background: linear-gradient(180deg, rgba(5, 11, 36, 0.3) 0%, rgba(2, 0, 12, 0.4) 100%);
     }
+
     .cinema-container {
       max-width: 1100px;
       width: 100%;
@@ -937,10 +1071,12 @@
       transform: scale(0.88);
       transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
     }
+
     .cinema-section.active .cinema-container {
       opacity: 1;
       transform: scale(1);
     }
+
     .cinema-header h2 {
       font-size: clamp(2rem, 5vw, 2.8rem);
       margin-bottom: 1rem;
@@ -948,6 +1084,7 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
+
     .cinema-header p {
       color: #8892b0;
       font-size: 1.1rem;
@@ -957,12 +1094,14 @@
       margin-right: auto;
       line-height: 1.7;
     }
+
     .movies-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 2rem;
       margin-top: 1rem;
     }
+
     @media (max-width: 900px) {
       .movies-grid {
         grid-template-columns: 1fr;
@@ -971,6 +1110,7 @@
         margin: 1rem auto 0 auto;
       }
     }
+
     .movie-card {
       background: rgba(2, 0, 16, 0.7);
       border: 1px solid rgba(255, 255, 255, 0.05);
@@ -984,6 +1124,7 @@
       transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
     }
+
     .movie-card::before {
       content: '';
       position: absolute;
@@ -994,6 +1135,7 @@
       background: linear-gradient(90deg, transparent, rgba(0, 240, 255, 0.3), transparent);
       transition: background 0.3s;
     }
+
     .movie-poster-fallback {
       width: 70px;
       height: 70px;
@@ -1008,12 +1150,14 @@
       margin-bottom: 1.5rem;
       transition: all 0.3s;
     }
+
     .movie-info h3 {
       font-size: 1.3rem;
       font-weight: 700;
       margin-bottom: 0.8rem;
       color: #ffffff;
     }
+
     .movie-info p {
       font-size: 0.95rem;
       line-height: 1.6;
@@ -1021,6 +1165,7 @@
       margin-bottom: 2rem;
       min-height: 72px;
     }
+
     .movie-select-btn {
       background: rgba(255, 255, 255, 0.03);
       border: 1px solid rgba(0, 240, 255, 0.3);
@@ -1033,37 +1178,44 @@
       transition: all 0.3s ease;
       width: 100%;
     }
+
     .movie-card.selected {
       border-color: var(--neon-blue);
       box-shadow: var(--neon-blue-glow);
       transform: translateY(-8px);
     }
+
     .movie-card.selected::before {
       background: var(--neon-blue);
       box-shadow: 0 0 10px var(--neon-blue);
     }
+
     .movie-card.selected .movie-poster-fallback {
       background: rgba(0, 240, 255, 0.15);
       box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
       transform: scale(1.1);
     }
+
     .movie-card.selected .movie-select-btn {
       background: var(--neon-blue);
       color: var(--bg-dark);
       box-shadow: 0 0 10px var(--neon-blue);
       border-color: var(--neon-blue);
     }
+
     /* ==========================================
        14. SECTION 9: KAHVE DATE'İ
        ========================================== */
     .coffee-section {
       background: linear-gradient(180deg, rgba(2, 0, 12, 0.4) 0%, rgba(5, 11, 36, 0.3) 100%);
     }
+
     .coffee-container {
       max-width: 900px;
       width: 100%;
       text-align: center;
     }
+
     .coffee-table {
       background: rgba(2, 0, 16, 0.45);
       border: 1px solid rgba(0, 240, 255, 0.05);
@@ -1073,6 +1225,7 @@
       position: relative;
       overflow: hidden;
     }
+
     .coffee-cups-wrapper {
       display: flex;
       justify-content: center;
@@ -1081,11 +1234,13 @@
       align-items: center;
       min-height: 260px;
     }
+
     @media (max-width: 600px) {
       .coffee-cups-wrapper {
         gap: 3rem;
       }
     }
+
     .coffee-cup-container {
       display: flex;
       flex-direction: column;
@@ -1094,6 +1249,7 @@
       z-index: 5;
       transition: transform 0.3s ease, opacity 0.3s ease;
     }
+
     .coffee-label-tag {
       font-size: 0.9rem;
       font-weight: 600;
@@ -1105,56 +1261,67 @@
       border: 1px solid rgba(0, 240, 255, 0.15);
       text-shadow: var(--neon-blue-text);
     }
+
     .coffee-percentage {
       font-size: 0.85rem;
       color: #8892b0;
       font-weight: 700;
       margin-top: 10px;
     }
+
     .coffee-cup-left {
       opacity: 0;
       transform: translateX(-150px) rotate(-15deg);
     }
+
     .coffee-section.active .coffee-cup-left {
       animation: slideMeetLeft 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
     }
+
     @keyframes slideMeetLeft {
       0% { opacity: 0; transform: translateX(-150px) rotate(-15deg); }
       75% { opacity: 1; transform: translateX(10px) rotate(3deg); }
       90% { transform: translateX(-3px) rotate(-1deg); }
       100% { opacity: 1; transform: translateX(0) rotate(0deg); }
     }
+
     .coffee-cup-right {
       opacity: 0;
       transform: translateX(150px) rotate(15deg);
     }
+
     .coffee-section.active .coffee-cup-right {
       animation: slideMeetRight 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
     }
+
     @keyframes slideMeetRight {
       0% { opacity: 0; transform: translateX(150px) rotate(15deg); }
       75% { opacity: 1; transform: translateX(-10px) rotate(-3deg); }
       90% { transform: translateX(3px) rotate(1deg); }
       100% { opacity: 1; transform: translateX(0) rotate(0deg); }
     }
+
     .coffee-cup-container.clink-left {
       animation: clinkLeftAnimation 0.5s ease-in-out;
     }
     .coffee-cup-container.clink-right {
       animation: clinkRightAnimation 0.5s ease-in-out;
     }
+
     @keyframes clinkLeftAnimation {
       0% { transform: translateX(0) rotate(0deg); }
       35% { transform: translateX(15px) rotate(10deg); }
       70% { transform: translateX(0) rotate(0deg); }
       100% { transform: translateX(0) rotate(0deg); }
     }
+
     @keyframes clinkRightAnimation {
       0% { transform: translateX(0) rotate(0deg); }
       35% { transform: translateX(-15px) rotate(-10deg); }
       70% { transform: translateX(0) rotate(0deg); }
       100% { transform: translateX(0) rotate(0deg); }
     }
+
     .clink-sparkle {
       position: absolute;
       top: 35%;
@@ -1166,9 +1333,11 @@
       filter: drop-shadow(0 0 10px rgba(255, 230, 0, 0.8));
       transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.5);
     }
+
     .clink-sparkle.show {
       transform: translate(-50%, -50%) scale(1.3);
     }
+
     /* ==========================================
        15. SECTION 10: FENERBAHÇE ÖZEL BÖLÜMÜ
        ========================================== */
@@ -1176,9 +1345,11 @@
       background: linear-gradient(180deg, rgba(5, 11, 36, 0.3) 0%, rgba(2, 0, 12, 0.6) 100%);
       transition: background 1s ease-in-out;
     }
+
     .fb-section.flared {
       animation: stadiumGlow 8s infinite alternate ease-in-out;
     }
+
     @keyframes stadiumGlow {
       0% {
         background: radial-gradient(circle at center, rgba(0, 28, 85, 0.55) 0%, rgba(2, 0, 12, 0.9) 80%, rgba(2, 0, 12, 1) 100%);
@@ -1190,6 +1361,7 @@
         background: radial-gradient(circle at center, rgba(0, 28, 85, 0.55) 0%, rgba(2, 0, 12, 0.9) 80%, rgba(2, 0, 12, 1) 100%);
       }
     }
+
     .fb-container {
       max-width: 800px;
       width: 100%;
@@ -1200,10 +1372,12 @@
       transform: perspective(1000px) rotateX(15deg) translateY(50px);
       transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
     }
+
     .fb-section.active .fb-container {
       opacity: 1;
       transform: perspective(1000px) rotateX(0deg) translateY(0);
     }
+
     .fb-badge {
       display: inline-flex;
       align-items: center;
@@ -1218,6 +1392,7 @@
       margin-bottom: 1.5rem;
       text-shadow: 0 0 8px rgba(255, 230, 0, 0.4);
     }
+
     .fb-header h2 {
       font-size: clamp(2rem, 5vw, 3rem);
       margin-bottom: 2rem;
@@ -1228,9 +1403,11 @@
       animation: textShine 4s linear infinite;
       font-family: 'Outfit', sans-serif;
     }
+
     @keyframes textShine {
       to { background-position: 200% center; }
     }
+
     .fb-card {
       background: rgba(2, 0, 16, 0.7);
       border: 2px solid rgba(255, 230, 0, 0.15);
@@ -1242,25 +1419,30 @@
       backdrop-filter: blur(15px);
       transition: border-color 0.5s ease, box-shadow 0.5s ease;
     }
+
     .fb-section.flared .fb-card {
       border-color: rgba(255, 230, 0, 0.5);
       box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7), 0 0 40px rgba(255, 230, 0, 0.25);
     }
+
     .fb-message {
       font-size: 1.15rem;
       line-height: 1.9;
       color: #e2e8f0;
       margin-bottom: 3rem;
     }
+
     .fb-intro {
       font-size: 1.25rem;
       font-weight: 700;
       color: var(--neon-blue);
       margin-bottom: 1.5rem;
     }
+
     .fb-core {
       margin-bottom: 1.5rem;
     }
+
     .fb-outro {
       font-size: 1.3rem;
       font-weight: 700;
@@ -1269,6 +1451,7 @@
       -webkit-text-fill-color: transparent;
       margin-top: 2rem;
     }
+
     .flare-btn {
       background: linear-gradient(90deg, var(--fb-yellow) 0%, #ffbb00 100%);
       border: none;
@@ -1281,13 +1464,16 @@
       transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       box-shadow: 0 5px 20px rgba(255, 230, 0, 0.3);
     }
+
     .flare-btn:hover {
       transform: translateY(-4px) scale(1.03);
       box-shadow: 0 8px 30px rgba(255, 230, 0, 0.5), var(--neon-blue-glow);
     }
+
     .flare-btn:active {
       transform: translateY(-1px);
     }
+
     .stadium-lights {
       position: absolute;
       top: 0;
@@ -1298,9 +1484,11 @@
       opacity: 0.15;
       transition: opacity 0.5s ease;
     }
+
     .fb-section.flared .stadium-lights {
       opacity: 0.5;
     }
+
     .light-beam {
       position: absolute;
       top: -60px;
@@ -1310,24 +1498,29 @@
       transform-origin: top center;
       filter: blur(25px);
     }
+
     .beam-left {
       left: 10%;
       transform: rotate(35deg);
       animation: sweepLeft 6s infinite alternate ease-in-out;
     }
+
     .beam-right {
       right: 10%;
       transform: rotate(-35deg);
       animation: sweepRight 6s infinite alternate ease-in-out;
     }
+
     @keyframes sweepLeft {
       0% { transform: rotate(22deg); }
       100% { transform: rotate(42deg); }
     }
+
     @keyframes sweepRight {
       0% { transform: rotate(-22deg); }
       100% { transform: rotate(-42deg); }
     }
+
     .fireworks-container {
       position: absolute;
       top: 0;
@@ -1337,12 +1530,14 @@
       pointer-events: none;
       z-index: 4;
     }
+
     .flare-particle {
       position: absolute;
       border-radius: 50%;
       opacity: 0.8;
       filter: blur(1px);
     }
+
     @keyframes riseFade {
       0% {
         transform: translateY(0) translateX(0) scale(1);
@@ -1356,19 +1551,45 @@
         opacity: 0;
       }
     }
+
+    /* ==========================================
+       16. SECTION 11: GÜVENLİ EVE DÖNÜŞ (KAPANIŞ)
+       ========================================== */
+    .end-section {
+      background: linear-gradient(180deg, rgba(2, 0, 12, 0.5) 0%, rgba(5, 11, 36, 0.4) 100%);
+    }
+
+    .end-container {
+      max-width: 800px;
+      width: 100%;
+      text-align: center;
+      position: relative;
+      z-index: 5;
+      opacity: 0;
+      transform: perspective(1000px) rotateX(15deg) translateY(50px);
+      transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .end-section.active .end-container {
+      opacity: 1;
+      transform: perspective(1000px) rotateX(0deg) translateY(0);
+    }
   </style>
 </head>
 <body>
+
   <!-- Background Orbs -->
   <div class="bg-glows">
     <div class="glow-orb orb-1"></div>
     <div class="glow-orb orb-2"></div>
     <div class="glow-orb orb-3"></div>
   </div>
+
   <!-- Custom Cursor Elements -->
   <div class="custom-cursor" id="custom-cursor"></div>
   <div class="custom-cursor-follower" id="custom-cursor-follower"></div>
-  <!-- Scroll Side Navigation Dots (10 DOTS) -->
+
+  <!-- Scroll Side Navigation Dots (11 DOTS) -->
   <div class="scroll-nav">
     <div class="nav-dot active" onclick="scrollToSection(1)"></div>
     <div class="nav-dot" onclick="scrollToSection(2)"></div>
@@ -1380,7 +1601,9 @@
     <div class="nav-dot" onclick="scrollToSection(8)"></div>
     <div class="nav-dot" onclick="scrollToSection(9)"></div>
     <div class="nav-dot" onclick="scrollToSection(10)"></div>
+    <div class="nav-dot" onclick="scrollToSection(11)"></div>
   </div>
+
   <!-- ==========================================
        SECTION 1: HERO (GİRİŞ)
        ========================================== -->
@@ -1395,6 +1618,7 @@
       <i class="fas fa-chevron-down"></i>
     </div>
   </section>
+
   <!-- ==========================================
        SECTION 2: DOĞUM GÜNÜ & SPOTIFY
        ========================================== -->
@@ -1407,10 +1631,11 @@
       </div>
       
       <div class="spotify-card">
-        <iframe src="https://open.spotify.com/embed/track/7orS6gYjXQzSAtA7SAn6u8?utm_source=generator&theme=1" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/7orS6gYjXQzSAtA7SAn6u8?utm_source=generator&theme=1&autoplay=1" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </div>
     </div>
   </section>
+
   <!-- ==========================================
        SECTION 3: ZAMAN TÜNELİ SAYAÇ
        ========================================== -->
@@ -1441,39 +1666,16 @@
       </div>
     </div>
   </section>
+
   <!-- ==========================================
-       SECTION 4: İLK GÜNÜN ANISI (CHAT LOG)
+       SECTION 4: DİJİTAL YEMEK DATE'İ
        ========================================== -->
-  <section class="section chat-section" data-section-index="4">
-    <div class="chat-wrapper">
-      <div class="chat-container">
-        <div class="chat-header">
-          <div class="status-dot"></div> Sudiş & Enes Sohbet Logu
-        </div>
-        <div class="chat-messages">
-          <!-- Sudiş Bubble -->
-          <div class="chat-bubble chat-left">
-            <div class="chat-sender">Sudiş 🌸</div>
-            <div class="chat-text">uzgunbasur kuzenim tembige attığın fotoğrafı hangi uygulamada yaptın öyle</div>
-          </div>
-          <!-- Enes Bubble -->
-          <div class="chat-bubble chat-right">
-            <div class="chat-sender">Enes ⚡</div>
-            <div class="chat-text">gemini pro ama chatgpt de yapıyo hatta daha iyi yapıyo</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- ==========================================
-       SECTION 5: DİJİTAL YEMEK DATE'İ
-       ========================================== -->
-  <section class="section food-section" data-section-index="5">
+  <section class="section food-section" data-section-index="4">
     <div class="food-container">
       <div class="counter-header">
         <div class="card-badge"><i class="fas fa-hamburger"></i> Dijital Menü</div>
         <h2>Afiyet Olsun Sudiş! 🍔🥤</h2>
-        <p>Keşke şu an aynı şehirde olup bunu gerçek hayatta yan yana yeseydik ama oraya gelince hepsini tek tek telafi edeceğiz zaten, sözüm söz. Şimdilik masayı buraya kurdum, siparişlerin geldi. Üzerlerine tıklayarak yiyip içebilirsin, afiyet olsun.</p>
+        <p>Keşke şu an aynı şehirde olup bunu gerçek hayatta yan yana yeseydik...</p>
       </div>
       
       <div class="table-container">
@@ -1507,16 +1709,18 @@
     <audio id="bite-sound" src="bite.MP3" preload="auto"></audio>
     <audio id="slurp-sound" src="slurp.MP3" preload="auto"></audio>
   </section>
+
   <!-- ==========================================
-       SECTION 6: KİM BENİ NE KADAR TANIYOR? (QUIZ)
+       SECTION 5: KİM BENİ NE KADAR TANIYOR? (QUIZ)
        ========================================== -->
-  <section class="section quiz-section" data-section-index="6">
+  <section class="section quiz-section" data-section-index="5">
     <div class="quiz-container">
       <div class="quiz-header">
         <div class="card-badge"><i class="fas fa-brain"></i> Mini Test</div>
         <h2>Kim Beni Ne Kadar Tanıyor? 🧠</h2>
         <p>Bakalım hakkımdaki detayları ne kadar iyi biliyorsun. Hata payı yoktur, elenirsen trip atmak yok!</p>
       </div>
+
       <!-- Question 1 -->
       <div class="quiz-card active" id="quiz-q1">
         <h3 class="question-text">Soru 1: Benim en çok ayar olduğum, kelime ne?</h3>
@@ -1529,6 +1733,7 @@
         <div class="feedback-msg" id="feedback-q1"></div>
         <button class="quiz-next-btn" id="next-q1" onclick="nextQuestion(2)">Sonraki Soru <i class="fas fa-arrow-right"></i></button>
       </div>
+
       <!-- Question 2 -->
       <div class="quiz-card" id="quiz-q2" style="display: none;">
         <h3 class="question-text">Soru 2: Aramızda ilk mesajı kim, hangi efsanevi kelimeyle attı?</h3>
@@ -1541,6 +1746,7 @@
         <div class="feedback-msg" id="feedback-q2"></div>
         <button class="quiz-next-btn" id="next-q2" onclick="nextQuestion(3)">Sonraki Soru <i class="fas fa-arrow-right"></i></button>
       </div>
+
       <!-- Question 3 -->
       <div class="quiz-card" id="quiz-q3" style="display: none;">
         <h3 class="question-text">Soru 3: Madem ilk mesajı benim 'uzgunbasur' nickime ve o fotoğrafa borçluyuz... Peki o gün benden aldığın o efsanevi ilk cevabım neydi?</h3>
@@ -1553,21 +1759,52 @@
         <div class="feedback-msg" id="feedback-q3"></div>
         <button class="quiz-next-btn" id="next-q3" onclick="finishQuiz()">Yarışmayı Bitir <i class="fas fa-check"></i></button>
       </div>
+
       <!-- Quiz Result / Success Screen -->
       <div class="quiz-card" id="quiz-result" style="display: none;">
         <h3 class="question-text" style="color: var(--neon-blue); text-shadow: var(--neon-blue-glow); margin-bottom: 1rem;">Tebrikler! Testi Başarıyla Tamamladın! 🏆</h3>
         <p class="result-text" style="color: #ccd6f6; line-height: 1.6; margin-bottom: 2rem;">
-          Tüm sorulara cevap verdin canım. Kelime dünyasına geçip konuşmalarımızda en sık geçen kelimeleri görmek için aşağıdaki butona tıkla!
+          Tüm sorulara cevap verdin canım. Kanıt niyetine sohbet logumuza geçip o efsanevi günü hatırlamak için aşağıdaki butona tıkla!
         </p>
         <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
           <button class="refill-btn show" onclick="resetQuiz()" style="margin-top: 0; width: auto; padding: 0.8rem 2rem;">Tekrar Çöz 🔄</button>
-          <button class="quiz-next-btn show" onclick="scrollToSection(7)" style="margin-top: 0; width: auto; padding: 0.8rem 2rem;">Kelimelerimize Bakalım <i class="fas fa-arrow-right"></i></button>
+          <button class="quiz-next-btn show" onclick="scrollToSection(6)" style="margin-top: 0; width: auto; padding: 0.8rem 2rem;">Kanıta Bakalım <i class="fas fa-arrow-right"></i></button>
         </div>
       </div>
     </div>
     <!-- Confetti particle container for quiz only -->
     <div class="fireworks-container" id="quiz-confetti"></div>
   </section>
+
+  <!-- ==========================================
+       SECTION 6: SOHBET LOGU (İLK GÜNÜN ANISI)
+       ========================================== -->
+  <section class="section chat-section" data-section-index="6">
+    <div class="chat-wrapper">
+      <div class="chat-container">
+        <div class="chat-header">
+          <div class="status-dot"></div> Sudiş & Enes Sohbet Logu
+        </div>
+        <div class="chat-messages">
+          <!-- Sudiş Bubble -->
+          <div class="chat-bubble chat-left">
+            <div class="chat-sender">Sudiş 🌸</div>
+            <div class="chat-text">uzgunbasur kuzenim tembige attığın fotoğrafı hangi uygulamada yaptın öyle</div>
+          </div>
+          <!-- Enes Bubble -->
+          <div class="chat-bubble chat-right">
+            <div class="chat-sender">Enes ⚡</div>
+            <div class="chat-text">gemini pro ama chatgpt de yapıyo hatta daha iyi yapıyo</div>
+          </div>
+        </div>
+      </div>
+      <!-- Footer Nav Button -->
+      <div style="text-align: center; margin-top: 2.5rem; z-index: 10;">
+        <button class="quiz-next-btn show" onclick="scrollToSection(7)" style="width: auto; padding: 0.8rem 2rem;">Kelimelerimize Bakalım <i class="fas fa-arrow-right"></i></button>
+      </div>
+    </div>
+  </section>
+
   <!-- ==========================================
        SECTION 7: EN ÇOK KULLANDIKLARIMIZ (KELİME DÜNYASI)
        ========================================== -->
@@ -1580,16 +1817,22 @@
       </div>
       
       <div class="words-cloud">
-        <div class="word-bubble bubble-w1 clickable">CANIM</div>
-        <div class="word-bubble bubble-w2 clickable">NAPIYON</div>
-        <div class="word-bubble bubble-w3 clickable">ÖZLEDİM</div>
-        <div class="word-bubble bubble-w4 clickable">ALIEFE</div>
-        <div class="word-bubble bubble-w5 clickable">FB</div>
-        <div class="word-bubble bubble-w6 clickable">KUZENİM</div>
-        <div class="word-bubble bubble-w7 clickable">GEMINI</div>
+        <div class="word-bubble bubble-w1 clickable" onclick="clickWordBubble(this)">CANIM</div>
+        <div class="word-bubble bubble-w2 clickable" onclick="clickWordBubble(this)">NAPIYON</div>
+        <div class="word-bubble bubble-w3 clickable" onclick="clickWordBubble(this)">ÖZLEDİM</div>
+        <div class="word-bubble bubble-w4 clickable" onclick="clickWordBubble(this)">ALIEFE</div>
+        <div class="word-bubble bubble-w5 clickable" onclick="clickWordBubble(this)">FB</div>
+        <div class="word-bubble bubble-w6 clickable" onclick="clickWordBubble(this)">KUZENİM</div>
+        <div class="word-bubble bubble-w7 clickable" onclick="clickWordBubble(this)">GEMINI</div>
+      </div>
+
+      <!-- Footer Nav Button -->
+      <div style="text-align: center; margin-top: 3.5rem; z-index: 10;">
+        <button class="quiz-next-btn show" onclick="scrollToSection(8)" style="width: auto; padding: 0.8rem 2rem;">Sinema Vakti 🎬</button>
       </div>
     </div>
   </section>
+
   <!-- ==========================================
        SECTION 8: SİNEMA / İZLEME SEANSI
        ========================================== -->
@@ -1613,6 +1856,7 @@
           </div>
           <button class="movie-select-btn">Seç 🍿</button>
         </div>
+
         <!-- Movie 2 -->
         <div class="movie-card clickable" onclick="selectMovie(2, this)">
           <div class="movie-poster-fallback">
@@ -1624,6 +1868,7 @@
           </div>
           <button class="movie-select-btn">Seç 🍿</button>
         </div>
+
         <!-- Movie 3 -->
         <div class="movie-card clickable" onclick="selectMovie(3, this)">
           <div class="movie-poster-fallback">
@@ -1636,8 +1881,14 @@
           <button class="movie-select-btn">Seç 🍿</button>
         </div>
       </div>
+
+      <!-- Footer Nav Button -->
+      <div style="text-align: center; margin-top: 3.5rem; z-index: 10;">
+        <button class="quiz-next-btn show" onclick="scrollToSection(9)" style="width: auto; padding: 0.8rem 2rem;">Kahve Date'ine Geç ☕</button>
+      </div>
     </div>
   </section>
+
   <!-- ==========================================
        SECTION 9: KAHVE DATE'İ
        ========================================== -->
@@ -1677,8 +1928,14 @@
           <div class="clink-sparkle" id="clink-sparkle">✨</div>
         </div>
       </div>
+
+      <!-- Footer Nav Button -->
+      <div style="text-align: center; margin-top: 3.5rem; z-index: 10;">
+        <button class="quiz-next-btn show" onclick="scrollToSection(10)" style="width: auto; padding: 0.8rem 2rem;">Fenerbahçe Bölümü 💛💙</button>
+      </div>
     </div>
   </section>
+
   <!-- ==========================================
        SECTION 10: FENERBAHÇE ÖZEL BÖLÜMÜ
        ========================================== -->
@@ -1705,10 +1962,43 @@
       
       <!-- Container for rising ember flare particles -->
       <div class="fireworks-container" id="fireworks"></div>
+
+      <!-- Footer Nav Button -->
+      <div style="text-align: center; margin-top: 2.5rem; z-index: 10;">
+        <button class="quiz-next-btn show" onclick="scrollToSection(11)" style="width: auto; padding: 0.8rem 2rem; background: linear-gradient(90deg, var(--fb-yellow) 0%, #ffbb00 100%); color: var(--fb-navy); box-shadow: 0 5px 20px rgba(255, 230, 0, 0.3);">Eve Dönüş Vakti 🚗</button>
+      </div>
     </div>
   </section>
+
   <!-- ==========================================
-       16. JAVASCRIPT LOGIC
+       SECTION 11: GÜVENLİ EVE DÖNÜŞ (KAPANIŞ)
+       ========================================== -->
+  <section class="section end-section" data-section-index="11">
+    <div class="end-container">
+      <div class="fb-badge"><i class="fas fa-car"></i> Aktivite Sonu</div>
+      <h2 class="hero-title">Güvenli Eve Dönüş 🚗✨</h2>
+      
+      <div class="fb-card">
+        <p class="fb-message">
+          Bütün dijital randevumuzu eksiksiz tamamladığımıza göre, şimdi seni güvenli bir şekilde evine bırakma vakti canım. Kapıya kadar geldik, bugünkü her an için teşekkürler. İyi ki doğdun, iyi ki varsın...
+        </p>
+        
+        <div id="exit-btn-container" style="display: flex; justify-content: center; align-items: center; min-height: 80px; margin-top: 1rem;">
+          <button class="flare-btn" id="exit-btn" onclick="exitCar()">Arabadan İn / Eve Giriş Yap</button>
+          
+          <div id="final-message" class="fb-outro" style="display: none; opacity: 0; transition: opacity 0.8s ease; font-size: 1.3rem; font-weight: 700; text-align: center; margin-top: 0;">
+            Günün sonu. Yeni yaşın sana tüm güzellikleri getirsin canım. 💫
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Confetti container for section 11 -->
+    <div class="fireworks-container" id="end-confetti"></div>
+  </section>
+
+  <!-- ==========================================
+       17. JAVASCRIPT LOGIC
        ========================================== -->
   <script>
     /* ==========================================
@@ -1724,6 +2014,7 @@
       follower.style.left = e.clientX + 'px';
       follower.style.top = e.clientY + 'px';
     });
+
     // Cursor effect on clickable elements
     document.querySelectorAll('a, button, .clickable, iframe, img').forEach(el => {
       el.addEventListener('mouseenter', () => {
@@ -1746,6 +2037,7 @@
         follower.style.borderColor = 'rgba(0, 240, 255, 0.4)';
       });
     });
+
     /* ==========================================
        B. INTERSECTION OBSERVER (SCROLL ANIMATIONS)
        ========================================== */
@@ -1754,6 +2046,7 @@
       threshold: 0.35,
       rootMargin: '0px'
     };
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -1774,15 +2067,18 @@
         }
       });
     }, observerOptions);
+
     document.querySelectorAll('.section').forEach(section => {
       observer.observe(section);
     });
+
     function scrollToSection(index) {
       const section = document.querySelector(`.section[data-section-index="${index}"]`);
       if (section) {
         section.scrollIntoView({ behavior: 'smooth' });
       }
     }
+
     /* ==========================================
        C. CHRONOMETER / COUNTDOWN CALCULATIONS (15 MAYIS 2026)
        ========================================== */
@@ -1805,6 +2101,7 @@
     
     setInterval(updateTimelineCounter, 1000);
     updateTimelineCounter();
+
     /* ==========================================
        D. FALLBACK SVG GENERATOR & ERROR HANDLER
        ========================================== */
@@ -1814,6 +2111,7 @@
       'coffee-sudis': false,
       'coffee-enes': false
     };
+
     function fallbackImage(type) {
       imageLoadError[type] = true;
       
@@ -1844,6 +2142,7 @@
         updateCoffeeUI('enes');
       }
     }
+
     function getFallbackSVG(type, stage) {
       if (type === 'burger') {
         if (stage === 0) {
@@ -1937,6 +2236,7 @@
       }
       return '';
     }
+
     /* ==========================================
        E. SOUND EFFECT TRIGGER
        ========================================== */
@@ -1949,34 +2249,40 @@
         });
       }
     }
+
     /* ==========================================
        F. DIGITIAL YEMEK DATE'İ DYNAMICS
        ========================================== */
     let burgerStage = 0;
     let colaStage = 0;
+
     function biteBurger() {
       if (burgerStage >= 4) return;
       burgerStage++;
       triggerSound('bite-sound');
       updateBurgerUI();
     }
+
     function updateBurgerUI() {
       const img = document.getElementById('burger-img');
       const fallback = document.getElementById('burger-fallback');
       const refillBtn = document.getElementById('burger-refill');
       const wrapper = img.parentElement;
+
       if (burgerStage === 4) {
         wrapper.style.opacity = '0';
         wrapper.style.pointerEvents = 'none';
         refillBtn.classList.add('show');
         return;
       }
+
       if (imageLoadError.burger) {
         fallback.innerHTML = getFallbackSVG('burger', burgerStage);
       } else {
         img.src = burgerStage === 0 ? 'burger-full.png' : `burger-${burgerStage}.png`;
       }
     }
+
     function refillBurger(event) {
       event.stopPropagation();
       burgerStage = 0;
@@ -1991,29 +2297,34 @@
       
       updateBurgerUI();
     }
+
     function slurpCola() {
       if (colaStage >= 4) return;
       colaStage++;
       triggerSound('slurp-sound');
       updateColaUI();
     }
+
     function updateColaUI() {
       const img = document.getElementById('cola-img');
       const fallback = document.getElementById('cola-fallback');
       const refillBtn = document.getElementById('cola-refill');
       const wrapper = img.parentElement;
+
       if (colaStage === 4) {
         wrapper.style.opacity = '0';
         wrapper.style.pointerEvents = 'none';
         refillBtn.classList.add('show');
         return;
       }
+
       if (imageLoadError.cola) {
         fallback.innerHTML = getFallbackSVG('cola', colaStage);
       } else {
         img.src = colaStage === 0 ? 'cola-full.png' : `cola-${colaStage}.png`;
       }
     }
+
     function refillCola(event) {
       event.stopPropagation();
       colaStage = 0;
@@ -2028,6 +2339,7 @@
       
       updateColaUI();
     }
+
     /* ==========================================
        G. KAHVE DATE'İ DYNAMICS
        ========================================== */
@@ -2035,6 +2347,7 @@
       sudis: 0,
       enes: 0
     };
+
     function triggerCoffeeClink() {
       const leftCup = document.getElementById('sudis-coffee-container');
       const rightCup = document.getElementById('enes-coffee-container');
@@ -2055,26 +2368,31 @@
         }, 1200);
       }
     }
+
     function drinkCoffee(who) {
       if (coffeeStages[who] >= 3) return;
       coffeeStages[who]++;
       triggerSound('slurp-sound');
       updateCoffeeUI(who);
     }
+
     function updateCoffeeUI(who) {
       const img = document.getElementById(`${who}-coffee-img`);
       const fallback = document.getElementById(`coffee-${who}-fallback`);
       const percentText = document.getElementById(`${who}-coffee-percent`);
       const refillBtn = document.getElementById(`${who}-coffee-refill`);
       const wrapper = img.parentElement;
+
       const percents = ['%100', '%50', '%15', '%0'];
       percentText.innerText = percents[coffeeStages[who]];
+
       if (coffeeStages[who] === 3) {
         wrapper.style.opacity = '0';
         wrapper.style.pointerEvents = 'none';
         refillBtn.classList.add('show');
         return;
       }
+
       if (imageLoadError[`coffee-${who}`]) {
         fallback.innerHTML = getFallbackSVG('coffee', coffeeStages[who]);
       } else {
@@ -2082,6 +2400,7 @@
         img.src = imgNames[coffeeStages[who]];
       }
     }
+
     function refillCoffee(who, event) {
       event.stopPropagation();
       coffeeStages[who] = 0;
@@ -2096,6 +2415,7 @@
       
       updateCoffeeUI(who);
     }
+
     /* ==========================================
        H. KİM BENİ NE KADAR TANIYOR? (QUIZ)
        ========================================== */
@@ -2104,6 +2424,7 @@
       2: 'C',
       3: 'B'
     };
+
     function checkAnswer(questionNum, selectedOption, btnElement) {
       const card = document.getElementById(`quiz-q${questionNum}`);
       const feedback = document.getElementById(`feedback-q${questionNum}`);
@@ -2152,6 +2473,7 @@
         }, 400);
       }
     }
+
     function nextQuestion(nextNum) {
       const currentCard = document.querySelector('.quiz-card.active');
       if (currentCard) {
@@ -2165,6 +2487,7 @@
         nextCard.classList.add('active');
       }
     }
+
     function finishQuiz() {
       const currentCard = document.querySelector('.quiz-card.active');
       if (currentCard) {
@@ -2180,6 +2503,7 @@
         setTimeout(triggerQuizConfetti, i * 250);
       }
     }
+
     function resetQuiz() {
       document.getElementById('quiz-result').style.display = 'none';
       document.getElementById('quiz-result').classList.remove('active');
@@ -2205,6 +2529,7 @@
         }
       }
     }
+
     function triggerQuizConfetti() {
       const container = document.getElementById('quiz-confetti');
       
@@ -2238,19 +2563,21 @@
         }, duration * 1000);
       }
     }
+
     /* ==========================================
-       I. KELİME DÜNYASI CLICK GLOWS
+       I. KELİME DÜNYASI CLICK MECHANISM (GAME)
        ========================================== */
-    document.querySelectorAll('.word-bubble').forEach(bubble => {
-      bubble.addEventListener('click', () => {
-        bubble.style.boxShadow = '0 0 35px rgba(0, 240, 255, 0.9)';
-        bubble.style.borderColor = '#ffffff';
-        setTimeout(() => {
-          bubble.style.boxShadow = '';
-          bubble.style.borderColor = '';
-        }, 450);
-      });
-    });
+    function clickWordBubble(bubble) {
+      const text = bubble.innerText.trim().toUpperCase();
+      if (text === "CANIM" || text === "NAPIYON" || text === "ÖZLEDİM") {
+        bubble.classList.add('bubble-green');
+        bubble.classList.remove('bubble-red');
+      } else {
+        bubble.classList.add('bubble-red');
+        bubble.classList.remove('bubble-green');
+      }
+    }
+
     /* ==========================================
        J. SİNEMA / İZLEME SEANSI DATE SELECTION
        ========================================== */
@@ -2263,13 +2590,14 @@
       
       cardElement.classList.add('selected');
       cardElement.querySelector('.movie-select-btn').innerText = "Seçildi! 🎬";
-      
-      triggerSound('bite-sound');
+      // This is completely silent now, no audio trigger!
     }
+
     /* ==========================================
        K. FENERBAHÇE ÖZEL MEŞALE EFFECTS
        ========================================== */
     let flareEmitterInterval = null;
+
     function igniteStadium() {
       const fbSection = document.querySelector('.fb-section');
       const fireworks = document.getElementById('fireworks');
@@ -2293,6 +2621,7 @@
         }
       }, 120);
     }
+
     function spawnFlareParticle(container) {
       const particle = document.createElement('div');
       particle.className = 'flare-particle';
@@ -2322,6 +2651,63 @@
       setTimeout(() => {
         particle.remove();
       }, duration * 1000);
+    }
+
+    /* ==========================================
+       L. SECTION 11 exitCar CONFETTI ANIMATION
+       ========================================== */
+    function exitCar() {
+      const btn = document.getElementById('exit-btn');
+      const finalMsg = document.getElementById('final-message');
+      
+      // Trigger confetti
+      triggerEndConfetti();
+      
+      // Hide button and show text
+      btn.style.opacity = '0';
+      btn.style.pointerEvents = 'none';
+      setTimeout(() => {
+        btn.style.display = 'none';
+        finalMsg.style.display = 'block';
+        setTimeout(() => {
+          finalMsg.style.opacity = '1';
+        }, 50);
+      }, 400);
+    }
+
+    function triggerEndConfetti() {
+      const container = document.getElementById('end-confetti');
+      container.innerHTML = ''; // Clear previous if any
+      
+      for (let i = 0; i < 60; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'flare-particle';
+        
+        const colors = ['#00f0ff', '#ff00aa', '#ffe600', '#c300ff', '#00ff66'];
+        const randomColor = colors[Math.floor(Math.random() * colors.length)];
+        particle.style.background = `radial-gradient(circle, ${randomColor} 0%, rgba(255,255,255,0) 70%)`;
+        
+        const xPos = Math.random() * 100;
+        particle.style.left = xPos + '%';
+        
+        const size = Math.random() * 12 + 6;
+        particle.style.width = size + 'px';
+        particle.style.height = size + 'px';
+        
+        particle.style.bottom = '10%';
+        
+        const duration = Math.random() * 2.0 + 1.5;
+        particle.style.animation = `riseFade ${duration}s cubic-bezier(0.1, 0.8, 0.2, 1) forwards`;
+        
+        const sway = (Math.random() - 0.5) * 200;
+        particle.style.setProperty('--sway', sway + 'px');
+        
+        container.appendChild(particle);
+        
+        setTimeout(() => {
+          particle.remove();
+        }, duration * 1000);
+      }
     }
   </script>
 </body>
