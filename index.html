@@ -149,7 +149,7 @@
       100% { transform: translate(-60px, 80px); }
     }
     /* ==========================================
-       4. NAVIGATION SCROLL DOTS (7 DOTS)
+       4. NAVIGATION SCROLL DOTS (8 DOTS)
        ========================================== */
     .scroll-nav {
       position: fixed;
@@ -605,127 +605,7 @@
       transition: all 0.3s;
     }
     /* ==========================================
-       10. SECTION 5: KAHVE DATE'İ
-       ========================================== */
-    .coffee-section {
-      background: linear-gradient(180deg, rgba(2, 0, 12, 0.4) 0%, rgba(5, 11, 36, 0.3) 100%);
-    }
-    .coffee-container {
-      max-width: 900px;
-      width: 100%;
-      text-align: center;
-    }
-    .coffee-table {
-      background: rgba(2, 0, 16, 0.45);
-      border: 1px solid rgba(0, 240, 255, 0.05);
-      border-radius: 32px;
-      padding: 5rem 2rem;
-      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
-      position: relative;
-      overflow: hidden;
-    }
-    .coffee-cups-wrapper {
-      display: flex;
-      justify-content: center;
-      gap: 10rem;
-      position: relative;
-      align-items: center;
-      min-height: 260px;
-    }
-    @media (max-width: 600px) {
-      .coffee-cups-wrapper {
-        gap: 3rem;
-      }
-    }
-    .coffee-cup-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      position: relative;
-      z-index: 5;
-      transition: transform 0.3s ease, opacity 0.3s ease;
-    }
-    .coffee-label-tag {
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: var(--neon-blue);
-      margin-bottom: 20px;
-      background: rgba(0, 240, 255, 0.08);
-      padding: 4px 14px;
-      border-radius: 50px;
-      border: 1px solid rgba(0, 240, 255, 0.15);
-      text-shadow: var(--neon-blue-text);
-    }
-    .coffee-percentage {
-      font-size: 0.85rem;
-      color: #8892b0;
-      font-weight: 700;
-      margin-top: 10px;
-    }
-    /* Left cup slide animation */
-    .coffee-cup-left {
-      opacity: 0;
-      transform: translateX(-150px) rotate(-15deg);
-    }
-    .coffee-section.active .coffee-cup-left {
-      animation: slideMeetLeft 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-    }
-    @keyframes slideMeetLeft {
-      0% { opacity: 0; transform: translateX(-150px) rotate(-15deg); }
-      75% { opacity: 1; transform: translateX(10px) rotate(3deg); }
-      90% { transform: translateX(-3px) rotate(-1deg); }
-      100% { opacity: 1; transform: translateX(0) rotate(0deg); }
-    }
-    /* Right cup slide animation */
-    .coffee-cup-right {
-      opacity: 0;
-      transform: translateX(150px) rotate(15deg);
-    }
-    .coffee-section.active .coffee-cup-right {
-      animation: slideMeetRight 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-    }
-    @keyframes slideMeetRight {
-      0% { opacity: 0; transform: translateX(150px) rotate(15deg); }
-      75% { opacity: 1; transform: translateX(-10px) rotate(-3deg); }
-      90% { transform: translateX(3px) rotate(1deg); }
-      100% { opacity: 1; transform: translateX(0) rotate(0deg); }
-    }
-    /* Clinking tilt keyframes */
-    .coffee-cup-container.clink-left {
-      animation: clinkLeftAnimation 0.5s ease-in-out;
-    }
-    .coffee-cup-container.clink-right {
-      animation: clinkRightAnimation 0.5s ease-in-out;
-    }
-    @keyframes clinkLeftAnimation {
-      0% { transform: translateX(0) rotate(0deg); }
-      35% { transform: translateX(15px) rotate(10deg); }
-      70% { transform: translateX(0) rotate(0deg); }
-      100% { transform: translateX(0) rotate(0deg); }
-    }
-    @keyframes clinkRightAnimation {
-      0% { transform: translateX(0) rotate(0deg); }
-      35% { transform: translateX(-15px) rotate(-10deg); }
-      70% { transform: translateX(0) rotate(0deg); }
-      100% { transform: translateX(0) rotate(0deg); }
-    }
-    /* Sparkle Clink overlay */
-    .clink-sparkle {
-      position: absolute;
-      top: 35%;
-      left: 50%;
-      transform: translate(-50%, -50%) scale(0);
-      font-size: 3rem;
-      pointer-events: none;
-      z-index: 10;
-      filter: drop-shadow(0 0 10px rgba(255, 230, 0, 0.8));
-      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.5);
-    }
-    .clink-sparkle.show {
-      transform: translate(-50%, -50%) scale(1.3);
-    }
-    /* ==========================================
-       11. SECTION 6: KİM BENİ NE KADAR TANIYOR? (QUIZ)
+       10. SECTION 5: KİM BENİ NE KADAR TANIYOR? (QUIZ)
        ========================================== */
     .quiz-section {
       background: linear-gradient(180deg, rgba(2, 0, 12, 0.4) 0%, rgba(5, 11, 36, 0.3) 100%);
@@ -865,12 +745,263 @@
       box-shadow: 0 8px 25px rgba(0, 240, 255, 0.5);
     }
     /* ==========================================
-       12. SECTION 7: FENERBAHÇE ÖZEL BÖLÜMÜ
+       11. SECTION 6: SİNEMA / İZLEME SEANSI (NEW)
+       ========================================== */
+    .cinema-section {
+      background: linear-gradient(180deg, rgba(5, 11, 36, 0.3) 0%, rgba(2, 0, 12, 0.4) 100%);
+    }
+    .cinema-container {
+      max-width: 1100px;
+      width: 100%;
+      text-align: center;
+      opacity: 0;
+      transform: scale(0.88);
+      transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .cinema-section.active .cinema-container {
+      opacity: 1;
+      transform: scale(1);
+    }
+    .cinema-header h2 {
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #ffffff 40%, var(--neon-blue) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .cinema-header p {
+      color: #8892b0;
+      font-size: 1.1rem;
+      margin-bottom: 3.5rem;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.7;
+    }
+    .movies-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 1rem;
+    }
+    @media (max-width: 900px) {
+      .movies-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        max-width: 450px;
+        margin: 1rem auto 0 auto;
+      }
+    }
+    .movie-card {
+      background: rgba(2, 0, 16, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 24px;
+      padding: 2.5rem 1.8rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+    .movie-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, rgba(0, 240, 255, 0.3), transparent);
+      transition: background 0.3s;
+    }
+    .movie-poster-fallback {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background: rgba(0, 240, 255, 0.05);
+      border: 1px solid rgba(0, 240, 255, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      color: var(--neon-blue);
+      margin-bottom: 1.5rem;
+      transition: all 0.3s;
+    }
+    .movie-info h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+      color: #ffffff;
+    }
+    .movie-info p {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: #8892b0;
+      margin-bottom: 2rem;
+      min-height: 72px;
+    }
+    .movie-select-btn {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(0, 240, 255, 0.3);
+      color: var(--neon-blue);
+      padding: 0.6rem 1.8rem;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: 100%;
+    }
+    .movie-card.selected {
+      border-color: var(--neon-blue);
+      box-shadow: var(--neon-blue-glow);
+      transform: translateY(-8px);
+    }
+    .movie-card.selected::before {
+      background: var(--neon-blue);
+      box-shadow: 0 0 10px var(--neon-blue);
+    }
+    .movie-card.selected .movie-poster-fallback {
+      background: rgba(0, 240, 255, 0.15);
+      box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
+      transform: scale(1.1);
+    }
+    .movie-card.selected .movie-select-btn {
+      background: var(--neon-blue);
+      color: var(--bg-dark);
+      box-shadow: 0 0 10px var(--neon-blue);
+      border-color: var(--neon-blue);
+    }
+    /* ==========================================
+       12. SECTION 7: KAHVE DATE'İ
+       ========================================== */
+    .coffee-section {
+      background: linear-gradient(180deg, rgba(2, 0, 12, 0.4) 0%, rgba(5, 11, 36, 0.3) 100%);
+    }
+    .coffee-container {
+      max-width: 900px;
+      width: 100%;
+      text-align: center;
+    }
+    .coffee-table {
+      background: rgba(2, 0, 16, 0.45);
+      border: 1px solid rgba(0, 240, 255, 0.05);
+      border-radius: 32px;
+      padding: 5rem 2rem;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+      position: relative;
+      overflow: hidden;
+    }
+    .coffee-cups-wrapper {
+      display: flex;
+      justify-content: center;
+      gap: 10rem;
+      position: relative;
+      align-items: center;
+      min-height: 260px;
+    }
+    @media (max-width: 600px) {
+      .coffee-cups-wrapper {
+        gap: 3rem;
+      }
+    }
+    .coffee-cup-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      z-index: 5;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    .coffee-label-tag {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--neon-blue);
+      margin-bottom: 20px;
+      background: rgba(0, 240, 255, 0.08);
+      padding: 4px 14px;
+      border-radius: 50px;
+      border: 1px solid rgba(0, 240, 255, 0.15);
+      text-shadow: var(--neon-blue-text);
+    }
+    .coffee-percentage {
+      font-size: 0.85rem;
+      color: #8892b0;
+      font-weight: 700;
+      margin-top: 10px;
+    }
+    /* Left cup slide animation */
+    .coffee-cup-left {
+      opacity: 0;
+      transform: translateX(-150px) rotate(-15deg);
+    }
+    .coffee-section.active .coffee-cup-left {
+      animation: slideMeetLeft 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    }
+    @keyframes slideMeetLeft {
+      0% { opacity: 0; transform: translateX(-150px) rotate(-15deg); }
+      75% { opacity: 1; transform: translateX(10px) rotate(3deg); }
+      90% { transform: translateX(-3px) rotate(-1deg); }
+      100% { opacity: 1; transform: translateX(0) rotate(0deg); }
+    }
+    /* Right cup slide animation */
+    .coffee-cup-right {
+      opacity: 0;
+      transform: translateX(150px) rotate(15deg);
+    }
+    .coffee-section.active .coffee-cup-right {
+      animation: slideMeetRight 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    }
+    @keyframes slideMeetRight {
+      0% { opacity: 0; transform: translateX(150px) rotate(15deg); }
+      75% { opacity: 1; transform: translateX(-10px) rotate(-3deg); }
+      90% { transform: translateX(3px) rotate(1deg); }
+      100% { opacity: 1; transform: translateX(0) rotate(0deg); }
+    }
+    /* Clinking tilt keyframes */
+    .coffee-cup-container.clink-left {
+      animation: clinkLeftAnimation 0.5s ease-in-out;
+    }
+    .coffee-cup-container.clink-right {
+      animation: clinkRightAnimation 0.5s ease-in-out;
+    }
+    @keyframes clinkLeftAnimation {
+      0% { transform: translateX(0) rotate(0deg); }
+      35% { transform: translateX(15px) rotate(10deg); }
+      70% { transform: translateX(0) rotate(0deg); }
+      100% { transform: translateX(0) rotate(0deg); }
+    }
+    @keyframes clinkRightAnimation {
+      0% { transform: translateX(0) rotate(0deg); }
+      35% { transform: translateX(-15px) rotate(-10deg); }
+      70% { transform: translateX(0) rotate(0deg); }
+      100% { transform: translateX(0) rotate(0deg); }
+    }
+    /* Sparkle Clink overlay */
+    .clink-sparkle {
+      position: absolute;
+      top: 35%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      font-size: 3rem;
+      pointer-events: none;
+      z-index: 10;
+      filter: drop-shadow(0 0 10px rgba(255, 230, 0, 0.8));
+      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.5);
+    }
+    .clink-sparkle.show {
+      transform: translate(-50%, -50%) scale(1.3);
+    }
+    /* ==========================================
+       13. SECTION 8: FENERBAHÇE ÖZEL BÖLÜMÜ
        ========================================== */
     .fb-section {
       background: linear-gradient(180deg, rgba(5, 11, 36, 0.3) 0%, rgba(2, 0, 12, 0.6) 100%);
       transition: background 1s ease-in-out;
     }
+    /* Pulsating Stadium Glow */
     .fb-section.flared {
       animation: stadiumGlow 8s infinite alternate ease-in-out;
     }
@@ -891,6 +1022,7 @@
       text-align: center;
       position: relative;
       z-index: 5;
+      /* Scroll animation initial state */
       opacity: 0;
       transform: perspective(1000px) rotateX(15deg) translateY(50px);
       transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
@@ -983,6 +1115,7 @@
     .flare-btn:active {
       transform: translateY(-1px);
     }
+    /* Stadium lights beam effect */
     .stadium-lights {
       position: absolute;
       top: 0;
@@ -1063,7 +1196,7 @@
   <!-- Custom Cursor Elements -->
   <div class="custom-cursor" id="custom-cursor"></div>
   <div class="custom-cursor-follower" id="custom-cursor-follower"></div>
-  <!-- Scroll Side Navigation Dots (7 DOTS) -->
+  <!-- Scroll Side Navigation Dots (8 DOTS) -->
   <div class="scroll-nav">
     <div class="nav-dot active" onclick="scrollToSection(1)"></div>
     <div class="nav-dot" onclick="scrollToSection(2)"></div>
@@ -1072,6 +1205,7 @@
     <div class="nav-dot" onclick="scrollToSection(5)"></div>
     <div class="nav-dot" onclick="scrollToSection(6)"></div>
     <div class="nav-dot" onclick="scrollToSection(7)"></div>
+    <div class="nav-dot" onclick="scrollToSection(8)"></div>
   </div>
   <!-- ==========================================
        SECTION 1: HERO (GİRİŞ)
@@ -1079,7 +1213,7 @@
   <section class="section hero-section active" data-section-index="1">
     <div class="hero-container floating-element">
       <h1 class="hero-title">İyi ki doğdun Sudiş... ✨</h1>
-      <p class="hero-subtitle">Senin o bitmek bilmeyen triplerine ve "kuzenim yazdı" bahanelerine adanmış modern bir doğum günü sayfası. Kaydırmaya başla bakalım.</p>
+      <p class="hero-subtitle">Aramızdaki kilometreleri falan dert edecek değiliz herhalde. Senin için hazırladığım dünyaya hoş geldin canımmm. Aşağı kaydır...</p>
     </div>
     
     <div class="scroll-down" onclick="scrollToSection(2)">
@@ -1094,8 +1228,8 @@
     <div class="zoom-in-container">
       <div class="letter-card">
         <div class="card-badge"><i class="fas fa-ghost"></i> Didişme Ortağıma</div>
-        <h2>Buralar Eskiden Hep Tarlaydı... 🎧</h2>
-        <p>Bugün senin doğum günün, evet büyük gün! Her ne kadar bazen beni çıldırtsan da ve didişmekten yorulmasak da, hayatıma kattığın o neon enerji ve komik triplerin olmasa buralar cidden çok sıkıcı olurdu. Aşağıda senin en sevdiğin şarkı çalıyor, dinlerken diğer detaylarla yüzleşmeye hazır ol.</p>
+        <h2>Yeni yaşın kutlu olsun... 🎉</h2>
+        <p>Yeni yaşın kutlu olsun. Umarım bu yaşında yüzündeki o güzel gülüşün, tatlı neşen hiç eksik olmaz. Yan yana kutlayamasak da buradayız. Gezinirken arkada çalması için bizim şarkıyı da şuraya sabitledim, sesini açmayı unutma.</p>
       </div>
       
       <div class="spotify-card">
@@ -1109,8 +1243,8 @@
   <section class="section counter-section" data-section-index="3">
     <div class="spin-container">
       <div class="counter-header">
-        <div class="card-badge"><i class="fas fa-hourglass-half"></i> Sabır Testi</div>
-        <h2>Didişme Kronometresi... ⏳</h2>
+        <div class="card-badge"><i class="fas fa-hourglass-half"></i> Kronometre</div>
+        <h2>İlk Konuşmamızın Üzerinden Geçen Zaman ⏳</h2>
         <p>15 Mayıs 2026'dan beri birbirimize ne kadar katlandığımızı saniyesi saniyesine ölçüyoruz. Rekora gidiyoruz, haberin olsun!</p>
       </div>
       
@@ -1146,7 +1280,7 @@
       <div class="counter-header">
         <div class="card-badge"><i class="fas fa-hamburger"></i> Dijital Menü</div>
         <h2>Afiyet Olsun Sudiş! 🍔🥤</h2>
-        <p>Sanal burger ve kola ikramım. Isırıp yudumlarken fazla kilo hesabı yapmana gerek yok, tamamen kalorisizdir! Tıkla ve tüket.</p>
+        <p>Keşke şu an aynı şehirde olup bunu gerçek hayatta yan yana yeseydik ama oraya gelince hepsini telafi ederiz. Şimdilik masayı buraya kurdum, siparişlerin geldi. Üzerlerine tıklayarak yiyip içebilirsin, afiyet olsun.</p>
       </div>
       
       <div class="table-container">
@@ -1181,14 +1315,120 @@
     <audio id="slurp-sound" src="slurp.MP3" preload="auto"></audio>
   </section>
   <!-- ==========================================
-       SECTION 5: KAHVE DATE'İ
+       SECTION 5: KİM BENİ NE KADAR TANIYOR? (QUIZ)
        ========================================== -->
-  <section class="section coffee-section" data-section-index="5">
+  <section class="section quiz-section" data-section-index="5">
+    <div class="quiz-container">
+      <div class="quiz-header">
+        <div class="card-badge"><i class="fas fa-brain"></i> Mini Test</div>
+        <h2>Kim Beni Ne Kadar Tanıyor? 🧠</h2>
+        <p>Bakalım hakkımdaki detayları ne kadar iyi biliyorsun. Hata payı yoktur, elenirsen trip atmak yok!</p>
+      </div>
+      <!-- Question 1 -->
+      <div class="quiz-card active" id="quiz-q1">
+        <h3 class="question-text">Soru 1: Benim en çok ayar olduğum kelime ne?</h3>
+        <div class="options-grid">
+          <button class="option-btn" onclick="checkAnswer(1, 'A', this)">A) Aferim</button>
+          <button class="option-btn" onclick="checkAnswer(1, 'B', this)">B) :D</button>
+          <button class="option-btn" onclick="checkAnswer(1, 'C', this)">C) Böcek</button>
+          <button class="option-btn" onclick="checkAnswer(1, 'D', this)">D) Aliefe</button>
+        </div>
+        <div class="feedback-msg" id="feedback-q1"></div>
+        <button class="quiz-next-btn" id="next-q1" onclick="nextQuestion(2)">Sonraki Soru <i class="fas fa-arrow-right"></i></button>
+      </div>
+      <!-- Question 2 -->
+      <div class="quiz-card" id="quiz-q2" style="display: none;">
+        <h3 class="question-text">Soru 2: Aramızda ilk mesajı kim, hangi efsanevi kelimeyle attı?</h3>
+        <div class="options-grid">
+          <button class="option-btn" onclick="checkAnswer(2, 'A', this)">A) Sen attın - 'Selam'</button>
+          <button class="option-btn" onclick="checkAnswer(2, 'B', this)">B) Ben attım - 'Naber'</button>
+          <button class="option-btn" onclick="checkAnswer(2, 'C', this)">C) Sen attın - 'uzgunbasur kuzenim...'</button>
+          <button class="option-btn" onclick="checkAnswer(2, 'D', this)">D) Ortak arkadaşımız başlattı</button>
+        </div>
+        <div class="feedback-msg" id="feedback-q2"></div>
+        <button class="quiz-next-btn" id="next-q2" onclick="nextQuestion(3)">Sonraki Soru <i class="fas fa-arrow-right"></i></button>
+      </div>
+      <!-- Question 3 -->
+      <div class="quiz-card" id="quiz-q3" style="display: none;">
+        <h3 class="question-text">Soru 3: Madem ilk mesajı benim 'uzgunbasur' nickime ve o fotoğrafa borçluyuz... Peki o gün benden aldığın o efsanevi ilk cevabım neydi?</h3>
+        <div class="options-grid">
+          <button class="option-btn" onclick="checkAnswer(3, 'A', this)">A) 'Selam canım'</button>
+          <button class="option-btn" onclick="checkAnswer(3, 'B', this)">B) 'gemini pro ama chatgpt de yapıyo'</button>
+          <button class="option-btn" onclick="checkAnswer(3, 'C', this)">C) 'Kuzenim o işler öyle olmuyor'</button>
+          <button class="option-btn" onclick="checkAnswer(3, 'D', this)">D) Direkt fotoğrafın linkini attın</button>
+        </div>
+        <div class="feedback-msg" id="feedback-q3"></div>
+        <button class="quiz-next-btn" id="next-q3" onclick="finishQuiz()">Yarışmayı Bitir <i class="fas fa-check"></i></button>
+      </div>
+      <!-- Quiz Result / Success Screen -->
+      <div class="quiz-card" id="quiz-result" style="display: none;">
+        <h3 class="question-text" style="color: var(--neon-blue); text-shadow: var(--neon-blue-glow); margin-bottom: 1rem;">Tebrikler! Testi Başarıyla Tamamladın! 🏆</h3>
+        <p class="result-text" style="color: #ccd6f6; line-height: 1.6;">
+          Tüm sorulara cevap verdin. Görünüşe göre hafızan sağlam ve beni gerçekten iyi tanıyorsun canım 😉. Şimdi derbi tartışmalarına geçebiliriz!
+        </p>
+        <button class="refill-btn show" onclick="resetQuiz()" style="margin-top: 1.5rem; width: auto; padding: 0.8rem 2rem;">Tekrar Çöz 🔄</button>
+      </div>
+    </div>
+    <!-- Confetti particle container for quiz only -->
+    <div class="fireworks-container" id="quiz-confetti"></div>
+  </section>
+  <!-- ==========================================
+       SECTION 6: SİNEMA / İZLEME SEANSI (NEW)
+       ========================================== -->
+  <section class="section cinema-section" data-section-index="6">
+    <div class="cinema-container">
+      <div class="cinema-header">
+        <div class="card-badge"><i class="fas fa-film"></i> Sinema Seansı</div>
+        <h2>İzleme Seansı (Date Devam Ediyor) 🎬</h2>
+        <p>E yemeğimizi yedik, testimizi de çözdüysek şimdi arkaya yaslanıp bir şeyler izleme vakti. Sıradaki aktivitemiz için vizyondaki filmleri ve dizileri listeledim. Sence ilk hangisini izliyoruz canım?</p>
+      </div>
+      
+      <div class="movies-grid">
+        <!-- Movie 1 -->
+        <div class="movie-card clickable" onclick="selectMovie(1, this)">
+          <div class="movie-poster-fallback">
+            <i class="fas fa-robot"></i>
+          </div>
+          <div class="movie-info">
+            <h3>Uzgunbasur: The Beginning</h3>
+            <p>Yapay zeka gruplarında başlayıp buralara kadar uzanan efsanevi tanışma hikayesinin belgeseli.</p>
+          </div>
+          <button class="movie-select-btn">Seç 🍿</button>
+        </div>
+        <!-- Movie 2 -->
+        <div class="movie-card clickable" onclick="selectMovie(2, this)">
+          <div class="movie-poster-fallback">
+            <i class="fas fa-bolt"></i>
+          </div>
+          <div class="movie-info">
+            <h3>Trip Wars: Episode VII</h3>
+            <p>Bitmek bilmeyen tatlı triplerin ve didişmelerin başrolde olduğu sürükleyici bir macera.</p>
+          </div>
+          <button class="movie-select-btn">Seç 🍿</button>
+        </div>
+        <!-- Movie 3 -->
+        <div class="movie-card clickable" onclick="selectMovie(3, this)">
+          <div class="movie-poster-fallback">
+            <i class="fas fa-code"></i>
+          </div>
+          <div class="movie-info">
+            <h3>Gemini vs ChatGPT</h3>
+            <p>İlk günkü bodoslama yapay zeka övgüsünün ardındaki amansız teknolojik rekabet.</p>
+          </div>
+          <button class="movie-select-btn">Seç 🍿</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ==========================================
+       SECTION 7: KAHVE DATE'İ
+       ========================================== -->
+  <section class="section coffee-section" data-section-index="7">
     <div class="coffee-container">
       <div class="counter-header">
         <div class="card-badge"><i class="fas fa-coffee"></i> Kahve Molası</div>
-        <h2>Kahve Gıybeti Seansı ☕</h2>
-        <p>Gıybet seansının sanal provası. "Kuzenim yazmiş" bahanelerini kahve eşliğinde konuşalım. Dokun ve tokuştur!</p>
+        <h2>Kahve Date'i ☕</h2>
+        <p>Her şey bittiyse kapanışı kahveyle yapıyoruz. Sudiş için Ice Americano, benim için de Iced Caramel Latte. Üzerlerine tıklayarak yudumlayabilirsin, ellerine sağlık.</p>
       </div>
       
       <div class="coffee-table">
@@ -1222,71 +1462,13 @@
     </div>
   </section>
   <!-- ==========================================
-       SECTION 6: KİM BENİ NE KADAR TANIYOR?
+       SECTION 8: FENERBAHÇE ÖZEL BÖLÜMÜ
        ========================================== -->
-  <section class="section quiz-section" data-section-index="6">
-    <div class="quiz-container">
-      <div class="quiz-header">
-        <div class="card-badge"><i class="fas fa-brain"></i> Mini Test</div>
-        <h2>Kim Beni Ne Kadar Tanıyor? 🧠</h2>
-        <p>Bakalım hakkımdaki detayları ne kadar iyi biliyorsun. Hata payı yoktur, elenirsen trip atmak yok!</p>
-      </div>
-      <!-- Question 1 -->
-      <div class="quiz-card active" id="quiz-q1">
-        <h3 class="question-text">Soru 1: Benim en çok ayar olduğum kelime ne?</h3>
-        <div class="options-grid">
-          <button class="option-btn" onclick="checkAnswer(1, 'A', this)">A) Aferim</button>
-          <button class="option-btn" onclick="checkAnswer(1, 'B', this)">B) :D</button>
-          <button class="option-btn" onclick="checkAnswer(1, 'C', this)">C) Böcek</button>
-          <button class="option-btn" onclick="checkAnswer(1, 'D', this)">D) Aliefe</button>
-        </div>
-        <div class="feedback-msg" id="feedback-q1"></div>
-        <button class="quiz-next-btn" id="next-q1" onclick="nextQuestion(2)">Sonraki Soru <i class="fas fa-arrow-right"></i></button>
-      </div>
-      <!-- Question 2 -->
-      <div class="quiz-card" id="quiz-q2" style="display: none;">
-        <h3 class="question-text">Soru 2: Aramızda ilk mesajı kim, hangi efsanevi kelimeyle attı?</h3>
-        <div class="options-grid">
-          <button class="option-btn" onclick="checkAnswer(2, 'A', this)">A) Sen attın - 'Selam'</button>
-          <button class="option-btn" onclick="checkAnswer(2, 'B', this)">B) Ben attım - 'Naber'</button>
-          <button class="option-btn" onclick="checkAnswer(2, 'C', this)">C) Sen attın - 'uzgunbasur kuzenim...'</button>
-          <button class="option-btn" onclick="checkAnswer(2, 'D', this)">D) Ortak arkadaşımız başlattı</button>
-        </div>
-        <div class="feedback-msg" id="feedback-q2"></div>
-        <button class="quiz-next-btn" id="next-q2" onclick="nextQuestion(3)">Sonraki Soru <i class="fas fa-arrow-right"></i></button>
-      </div>
-      <!-- Question 3 -->
-      <div class="quiz-card" id="quiz-q3" style="display: none;">
-        <h3 class="question-text">Soru 3: Sence aramızda kim daha çok trip atıyor?</h3>
-        <div class="options-grid">
-          <button class="option-btn" onclick="checkAnswer(3, 'A', this)">A) Kesinlikle sen</button>
-          <button class="option-btn" onclick="checkAnswer(3, 'B', this)">B) Ben (Yalan)</button>
-          <button class="option-btn" onclick="checkAnswer(3, 'C', this)">C) Rekor sende ama bana atıyorsun</button>
-          <button class="option-btn" onclick="checkAnswer(3, 'D', this)">D) İkimiz de profesyoneliz</button>
-        </div>
-        <div class="feedback-msg" id="feedback-q3"></div>
-        <button class="quiz-next-btn" id="next-q3" onclick="finishQuiz()">Yarışmayı Bitir <i class="fas fa-check"></i></button>
-      </div>
-      <!-- Quiz Result / Success Screen -->
-      <div class="quiz-card" id="quiz-result" style="display: none;">
-        <h3 class="question-text" style="color: var(--neon-blue); text-shadow: var(--neon-blue-glow); margin-bottom: 1rem;">Tebrikler! Testi Başarıyla Tamamladın! 🏆</h3>
-        <p class="result-text" style="color: #ccd6f6; line-height: 1.6;">
-          Tüm sorulara (en azından doğru kabul edilenlere) cevap verdin. Görünüşe göre beni gerçekten iyi tanıyorsun (ya da triplerini kabullenmişsin diyelim 😉). Şimdi derbi tartışmalarına geçebiliriz!
-        </p>
-        <button class="refill-btn show" onclick="resetQuiz()" style="margin-top: 1.5rem; width: auto; padding: 0.8rem 2rem;">Tekrar Çöz 🔄</button>
-      </div>
-    </div>
-    <!-- Confetti particle container for quiz only -->
-    <div class="fireworks-container" id="quiz-confetti"></div>
-  </section>
-  <!-- ==========================================
-       SECTION 7: FENERBAHÇE ÖZEL BÖLÜMÜ
-       ========================================== -->
-  <section class="section fb-section" data-section-index="7">
+  <section class="section fb-section" data-section-index="8">
     <div class="fb-container">
       <div class="fb-header">
-        <div class="fb-badge"><i class="fas fa-star"></i> Ezeli Rekabet</div>
-        <h2>Ezeli Rakibim, Ebedi Flörtüm... 💛💙</h2>
+        <div class="fb-badge"><i class="fas fa-star"></i> Sarı Lacivert Sevda</div>
+        <h2>Sarı Lacivert Sevdana Saygıyla... 💛💙</h2>
       </div>
       
       <div class="fb-card">
@@ -1296,8 +1478,8 @@
         </div>
         
         <div class="fb-message">
-          <p class="fb-intro">Sen o inatçı Fenerbahçeli, ben de senin o deli Galatasaraylın...</p>
-          <p class="fb-core">Renklerimiz farklı, derbilerde didişiyoruz, ama kabul et: seninle geçen her gün benim için en tatlı galibiyet. Aramızdaki bu ezeli rekabet sevgimizi daha da eğlenceli kılıyor.</p>
+          <p class="fb-intro">Ben sonuna kadar Galatasaraylıyım biliyorsun. Ama bugün senin günün.</p>
+          <p class="fb-core">Senin o bitmek bilmeyen Fenerbahçe fanatikliğini, maç izlerken verdiğin o tepkileri bile izlemek o kadar keyif verir ki; sırf bugün senin yüzün gülsün diye bu sayfayı tamamen sarı laciverte boyadım. Derbi günü beni engelleme...</p>
           <p class="fb-outro">İyi ki doğdun sarı kanaryam, iyi ki hayatımdasın ve benimle didişiyorsun! 💛💙 ✨ ❤️💛</p>
         </div>
         
@@ -1309,7 +1491,7 @@
     </div>
   </section>
   <!-- ==========================================
-       13. JAVASCRIPT LOGIC
+       14. JAVASCRIPT LOGIC
        ========================================== -->
   <script>
     /* ==========================================
@@ -1703,7 +1885,7 @@
     const quizAnswers = {
       1: 'D',
       2: 'C',
-      3: ['A', 'C']
+      3: 'B'
     };
     function checkAnswer(questionNum, selectedOption, btnElement) {
       const card = document.getElementById(`quiz-q${questionNum}`);
@@ -1712,13 +1894,7 @@
       const allButtons = card.querySelectorAll('.option-btn');
       
       const correctChoice = quizAnswers[questionNum];
-      let isCorrect = false;
-      
-      if (Array.isArray(correctChoice)) {
-        isCorrect = correctChoice.includes(selectedOption);
-      } else {
-        isCorrect = (selectedOption === correctChoice);
-      }
+      const isCorrect = (selectedOption === correctChoice);
       
       if (isCorrect) {
         btnElement.classList.add('correct');
@@ -1735,11 +1911,7 @@
         } else if (questionNum === 2) {
           feedback.innerText = "Tarihi an! 'uzgunbasur kuzenim...' mesajını asla unutmayacağız 😂";
         } else if (questionNum === 3) {
-          if (selectedOption === 'A') {
-            feedback.innerText = "Kabul ettiğin iyi oldu! Neyse ki bu triplerin bir o kadar da tatlı 😉";
-          } else {
-            feedback.innerText = "Haklı tespit! Rekor sende ama bir şekilde fatura bana kesiliyor 😂";
-          }
+          feedback.innerText = "Harika hafıza! 'Gemini pro ama chatgpt de yapıyor, hatta daha iyi yapıyor' diyerek bodoslama yapay zeka övmüştüm. Bak nereden nereye... 🤖";
         }
         
         triggerQuizConfetti();
@@ -1754,7 +1926,7 @@
         const wrongMessages = [
           "Hadi oradan, bu yanlış! Tekrar dene bakalım 😜",
           "Bilemedin! Efsaneyi nasıl hatırlamazsın? Tekrar oku şıkları 🧐",
-          "Hadi canım, kendini kandırma! Gerçekçi ol ve tekrar şık seç 🤫"
+          "Bodoslama elendin! O günkü ilk cevabım bu değildi, tekrar seç 🤫"
         ];
         feedback.innerText = wrongMessages[questionNum - 1];
         
@@ -1850,7 +2022,22 @@
       }
     }
     /* ==========================================
-       I. FENERBAHÇE ÖZEL MEŞALE EFFECTS
+       J. SİNEMA / İZLEME SEANSI DATE SELECTION
+       ========================================== */
+    function selectMovie(movieId, cardElement) {
+      const section = cardElement.closest('.cinema-section');
+      section.querySelectorAll('.movie-card').forEach(card => {
+        card.classList.remove('selected');
+        card.querySelector('.movie-select-btn').innerText = "Seç 🍿";
+      });
+      
+      cardElement.classList.add('selected');
+      cardElement.querySelector('.movie-select-btn').innerText = "Seçildi! 🎬";
+      
+      triggerSound('bite-sound');
+    }
+    /* ==========================================
+       K. FENERBAHÇE ÖZEL MEŞALE EFFECTS
        ========================================== */
     let flareEmitterInterval = null;
     function igniteStadium() {
@@ -1909,3 +2096,4 @@
   </script>
 </body>
 </html>
+
