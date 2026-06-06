@@ -1670,13 +1670,18 @@
       </div>
       
       <div class="words-cloud">
-        <div class="word-bubble bubble-w1 clickable" onclick="clickWordBubble(this)">CANIM</div>
-        <div class="word-bubble bubble-w2 clickable" onclick="clickWordBubble(this)">NAPIYON</div>
-        <div class="word-bubble bubble-w3 clickable" onclick="clickWordBubble(this)">ÖZLEDİM</div>
-        <div class="word-bubble bubble-w4 clickable" onclick="clickWordBubble(this)">ALIEFE</div>
-        <div class="word-bubble bubble-w5 clickable" onclick="clickWordBubble(this)">FB</div>
-        <div class="word-bubble bubble-w6 clickable" onclick="clickWordBubble(this)">KUZENİM</div>
-        <div class="word-bubble bubble-w7 clickable" onclick="clickWordBubble(this)">GEMINI</div>
+        <div class="word-bubble bubble-w4 clickable" data-word-type="red" onclick="clickWordBubble(this)">ALIEFE</div>
+        <div class="word-bubble bubble-w1 clickable" data-word-type="green" onclick="clickWordBubble(this)">CANIM</div>
+        <div class="word-bubble bubble-w6 clickable" data-word-type="red" onclick="clickWordBubble(this)">KUZENİM</div>
+        <div class="word-bubble bubble-w2 clickable" data-word-type="green" onclick="clickWordBubble(this)">NAPIYON</div>
+        <div class="word-bubble bubble-w3 clickable" data-word-type="red" onclick="clickWordBubble(this)">UZGUNBASUR</div>
+        <div class="word-bubble bubble-w7 clickable" data-word-type="green" onclick="clickWordBubble(this)">AYNEN</div>
+        <div class="word-bubble bubble-w5 clickable" data-word-type="red" onclick="clickWordBubble(this)">GEMINI</div>
+        <div class="word-bubble bubble-w3 clickable" data-word-type="green" onclick="clickWordBubble(this)">ÖZLEDİM</div>
+        <div class="word-bubble bubble-w1 clickable" data-word-type="red" onclick="clickWordBubble(this)">TRİP</div>
+        <div class="word-bubble bubble-w2 clickable" data-word-type="green" onclick="clickWordBubble(this)">UYUDUN MU</div>
+        <div class="word-bubble bubble-w5 clickable" data-word-type="red" onclick="clickWordBubble(this)">FB</div>
+        <div class="word-bubble bubble-w4 clickable" data-word-type="red" onclick="clickWordBubble(this)">AFERİM</div>
       </div>
       <!-- Footer Nav Button -->
       <div style="text-align: center; margin-top: 3.5rem; z-index: 10;">
@@ -2392,8 +2397,8 @@
        I. KELİME DÜNYASI CLICK MECHANISM (GAME)
        ========================================== */
     function clickWordBubble(bubble) {
-      const text = bubble.innerText.trim().toUpperCase();
-      if (text === "CANIM" || text === "NAPIYON" || text === "ÖZLEDİM") {
+      const type = bubble.dataset.wordType;
+      if (type === "green") {
         bubble.classList.add('bubble-green');
         bubble.classList.remove('bubble-red');
       } else {
