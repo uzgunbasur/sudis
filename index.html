@@ -155,7 +155,7 @@
       100% { transform: translate(-60px, 80px); }
     }
     /* ==========================================
-       4. NAVIGATION SCROLL DOTS (11 DOTS)
+       4. NAVIGATION SCROLL DOTS (12 DOTS)
        ========================================== */
     .scroll-nav {
       position: fixed;
@@ -264,10 +264,114 @@
       60% { transform: translateY(-5px); }
     }
     /* ==========================================
-       7. SECTION 2: DOĞUM GÜNÜ & SPOTIFY
+       7. SECTION 2: BIRTHDAY CAKE & Mum Üfleme
+       ========================================== */
+    .cake-section {
+      background: linear-gradient(180deg, rgba(5, 11, 36, 0.3) 0%, rgba(2, 0, 12, 0.4) 100%);
+    }
+    .cake-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-top: 3px solid var(--neon-blue);
+      backdrop-filter: blur(15px);
+      padding: 3rem 2.5rem;
+      border-radius: 24px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+      max-width: 700px;
+      width: 100%;
+      text-align: center;
+      z-index: 10;
+    }
+    .cake-container {
+      position: relative;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+    .cake-svg {
+      width: 260px;
+      height: 200px;
+      filter: drop-shadow(0 0 15px rgba(255, 0, 128, 0.35));
+    }
+    .candle-container {
+      position: absolute;
+      top: 15px;
+      display: flex;
+      gap: 22px;
+      justify-content: center;
+      width: 100%;
+      z-index: 10;
+    }
+    .candle {
+      position: relative;
+      width: 12px;
+      height: 50px;
+      background: linear-gradient(to right, #00f0ff, #0077ff);
+      border-radius: 4px;
+      cursor: pointer;
+      transition: transform 0.3s;
+      box-shadow: 0 0 8px rgba(0, 240, 255, 0.5);
+    }
+    .candle:hover {
+      transform: scale(1.15);
+    }
+    .candle-wick {
+      position: absolute;
+      top: -5px;
+      left: 5px;
+      width: 2px;
+      height: 5px;
+      background: #444;
+    }
+    .flame {
+      position: absolute;
+      top: -17px;
+      left: -2px;
+      width: 16px;
+      height: 19px;
+      background: radial-gradient(ellipse at bottom, #ffea00 0%, #ff5500 50%, rgba(255,0,0,0) 90%);
+      border-radius: 50% 50% 20% 20%;
+      filter: drop-shadow(0 0 8px rgba(255, 85, 0, 0.8));
+      animation: flicker 0.15s infinite alternate;
+      transform-origin: bottom center;
+    }
+    @keyframes flicker {
+      0% { transform: scale(1) rotate(-1deg); }
+      100% { transform: scale(1.08) rotate(1.2deg); }
+    }
+    .candle.blown .flame {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .cake-banner {
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      font-weight: 800;
+      color: #fff;
+      background: linear-gradient(90deg, #ff007f, var(--neon-blue));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-top: 1.5rem;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      transform: translateY(15px);
+      transition: all 0.8s ease;
+      display: none;
+    }
+    .cake-banner.show {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+      animation: pulseText 1.5s infinite alternate ease-in-out;
+    }
+    /* ==========================================
+       8. SECTION 3: DOĞUM GÜNÜ & SPOTIFY
        ========================================== */
     .spotify-section {
-      background: linear-gradient(180deg, rgba(5, 11, 36, 0.3) 0%, rgba(2, 0, 12, 0.4) 100%);
+      background: linear-gradient(180deg, rgba(2, 0, 12, 0.4) 0%, rgba(5, 11, 36, 0.3) 100%);
     }
     .zoom-in-container {
       display: grid;
@@ -340,10 +444,10 @@
       display: block;
     }
     /* ==========================================
-       8. SECTION 3: ZAMAN TÜNELİ SAYAÇ
+       9. SECTION 4: ZAMAN TÜNELİ SAYAÇ
        ========================================== */
     .counter-section {
-      background: linear-gradient(180deg, rgba(2, 0, 12, 0.4) 0%, rgba(5, 11, 36, 0.3) 100%);
+      background: linear-gradient(180deg, rgba(5, 11, 36, 0.3) 0%, rgba(2, 0, 12, 0.4) 100%);
     }
     .spin-container {
       max-width: 900px;
@@ -425,7 +529,7 @@
       font-weight: 600;
     }
     /* ==========================================
-       9. SECTION 6: SOHBET LOGU (İLK GÜNÜN ANISI)
+       10. SECTION 7: SOHBET LOGU (İLK GÜNÜN ANISI)
        ========================================== */
     .chat-section {
       background: linear-gradient(180deg, rgba(2, 0, 12, 0.4) 0%, rgba(5, 11, 36, 0.3) 100%);
@@ -528,7 +632,7 @@
       }
     }
     /* ==========================================
-       10. SECTION 4: DİJİTAL YEMEK DATE'İ
+       11. SECTION 5: DİJİTAL YEMEK DATE'İ
        ========================================== */
     .food-section {
       background: linear-gradient(180deg, rgba(5, 11, 36, 0.3) 0%, rgba(2, 0, 12, 0.4) 100%);
@@ -701,7 +805,7 @@
       transition: all 0.3s;
     }
     /* ==========================================
-       11. SECTION 5: KİM BENİ NE KADAR TANIYOR? (QUIZ)
+       12. SECTION 6: KİM BENİ NE KADAR TANIYOR? (QUIZ)
        ========================================== */
     .quiz-section {
       background: linear-gradient(180deg, rgba(2, 0, 12, 0.4) 0%, rgba(5, 11, 36, 0.3) 100%);
@@ -840,7 +944,7 @@
       box-shadow: 0 8px 25px rgba(0, 240, 255, 0.5);
     }
     /* ==========================================
-       12. SECTION 7: EN ÇOK KULLANDIKLARIMIZ (KELİME DÜNYASI)
+       13. SECTION 8: EN ÇOK KULLANDIKLARIMIZ (KELİME DÜNYASI)
        ========================================== */
     .words-section {
       background: linear-gradient(180deg, rgba(5, 11, 36, 0.3) 0%, rgba(2, 0, 12, 0.4) 100%);
@@ -942,7 +1046,7 @@
       animation-play-state: paused;
     }
     /* ==========================================
-       13. SECTION 8: SİNEMA / İZLEME SEANSI
+       14. SECTION 9: SİNEMA / İZLEME SEANSI
        ========================================== */
     .cinema-section {
       background: linear-gradient(180deg, rgba(5, 11, 36, 0.3) 0%, rgba(2, 0, 12, 0.4) 100%);
@@ -1072,7 +1176,7 @@
       border-color: var(--neon-blue);
     }
     /* ==========================================
-       14. SECTION 9: KAHVE DATE'İ
+       15. SECTION 10: KAHVE DATE'İ
        ========================================== */
     .coffee-section {
       background: linear-gradient(180deg, rgba(2, 0, 12, 0.4) 0%, rgba(5, 11, 36, 0.3) 100%);
@@ -1188,7 +1292,7 @@
       transform: translate(-50%, -50%) scale(1.3);
     }
     /* ==========================================
-       15. SECTION 10: FENERBAHÇE ÖZEL BÖLÜMÜ
+       16. SECTION 11: FENERBAHÇE ÖZEL BÖLÜMÜ
        ========================================== */
     .fb-section {
       background: linear-gradient(180deg, rgba(5, 11, 36, 0.3) 0%, rgba(2, 0, 12, 0.6) 100%);
@@ -1375,7 +1479,7 @@
       }
     }
     /* ==========================================
-       16. SECTION 11: GÜVENLİ EVE DÖNÜŞ (KAPANIŞ)
+       17. SECTION 12: GÜVENLİ EVE DÖNÜŞ (KAPANIŞ)
        ========================================== */
     .end-section {
       background: linear-gradient(180deg, rgba(2, 0, 12, 0.5) 0%, rgba(5, 11, 36, 0.4) 100%);
@@ -1394,7 +1498,7 @@
       opacity: 1;
       transform: perspective(1000px) rotateX(0deg) translateY(0);
     }
-    /* NEW: Drive scene styles for Section 11 */
+    /* Drive scene styles for Section 12 */
     .drive-scene {
       position: relative;
       width: 100%;
@@ -1459,7 +1563,7 @@
   <!-- Custom Cursor Elements -->
   <div class="custom-cursor" id="custom-cursor"></div>
   <div class="custom-cursor-follower" id="custom-cursor-follower"></div>
-  <!-- Scroll Side Navigation Dots (11 DOTS) -->
+  <!-- Scroll Side Navigation Dots (12 DOTS) -->
   <div class="scroll-nav">
     <div class="nav-dot active" onclick="scrollToSection(1)"></div>
     <div class="nav-dot" onclick="scrollToSection(2)"></div>
@@ -1472,6 +1576,7 @@
     <div class="nav-dot" onclick="scrollToSection(9)"></div>
     <div class="nav-dot" onclick="scrollToSection(10)"></div>
     <div class="nav-dot" onclick="scrollToSection(11)"></div>
+    <div class="nav-dot" onclick="scrollToSection(12)"></div>
   </div>
   <!-- ==========================================
        SECTION 1: HERO (GİRİŞ)
@@ -1488,9 +1593,63 @@
     </div>
   </section>
   <!-- ==========================================
-       SECTION 2: DOĞUM GÜNÜ & SPOTIFY
-       ========================================== */ -->
-  <section class="section spotify-section" data-section-index="2">
+       SECTION 2: BIRTHDAY CAKE & Mum Üfleme (BURAYA TAŞINDI)
+       ========================================== -->
+  <section class="section cake-section" data-section-index="2">
+    <div class="cake-card">
+      <div class="card-badge"><i class="fas fa-birthday-cake"></i> En Özel An</div>
+      <h2>Mumları Üfleme Vakti! 🕯️</h2>
+      <p style="color: #ccd6f6; line-height: 1.8; margin-bottom: 1.5rem;">
+        Girişi yaptığımıza göre, direkt gecenin en önemli anına geçiyoruz canım. Senin için pastayı buraya bıraktım. Şimdi içinden güzel bir dilek tut ve mumlara tıklayarak hepsini üfle! ✨
+      </p>
+      <!-- Cake SVG and Candle Interactive Container -->
+      <div class="cake-container">
+        <div class="candle-container">
+          <div class="candle" id="candle-1" onclick="blowCandle(1)">
+            <div class="candle-wick"></div>
+            <div class="flame"></div>
+          </div>
+          <div class="candle" id="candle-2" onclick="blowCandle(2)">
+            <div class="candle-wick"></div>
+            <div class="flame"></div>
+          </div>
+          <div class="candle" id="candle-3" onclick="blowCandle(3)">
+            <div class="candle-wick"></div>
+            <div class="flame"></div>
+          </div>
+        </div>
+        
+        <svg viewBox="0 0 200 160" class="cake-svg">
+          <!-- Plate -->
+          <ellipse cx="100" cy="140" rx="80" ry="15" fill="none" stroke="#00f0ff" stroke-width="4" filter="drop-shadow(0 0 8px #00f0ff)"/>
+          <ellipse cx="100" cy="140" rx="72" ry="11" fill="rgba(0, 240, 255, 0.05)"/>
+          
+          <!-- Tier 1 (Bottom) -->
+          <path d="M40,105 C40,115 160,115 160,105 L160,135 C160,145 40,145 40,135 Z" fill="rgba(255, 0, 128, 0.1)" stroke="#ff0080" stroke-width="3" filter="drop-shadow(0 0 5px #ff0080)"/>
+          <!-- Tier 1 Drips -->
+          <path d="M40,105 C50,113 60,108 70,115 C80,108 90,113 100,105 C110,115 120,108 130,113 C140,108 150,113 160,105" fill="none" stroke="#00f0ff" stroke-width="3" />
+          
+          <!-- Tier 2 (Top) -->
+          <path d="M60,65 C60,73 140,73 140,65 L140,95 C140,103 60,103 60,95 Z" fill="rgba(255, 0, 128, 0.15)" stroke="#ff0080" stroke-width="3" filter="drop-shadow(0 0 5px #ff0080)"/>
+          <!-- Tier 2 Drips -->
+          <path d="M60,65 C70,71 80,68 90,73 C100,68 110,71 120,65 C130,71 140,65 140,65" fill="none" stroke="#00f0ff" stroke-width="3" />
+        </svg>
+      </div>
+      <div id="cake-banner" class="cake-banner">
+        İYİ Kİ DOĞDUN SUDİŞ! 🎂🎉
+      </div>
+      <div style="min-height: 50px; display: flex; justify-content: center; align-items: center; margin-top: 1.5rem;">
+        <button class="quiz-next-btn" id="cake-next-btn" onclick="scrollToSection(3)" style="display: none; width: auto; padding: 0.8rem 2rem;">Sonraki Bölüm <i class="fas fa-arrow-right"></i></button>
+      </div>
+    </div>
+    <!-- Audio and Confetti elements for Cake section -->
+    <audio id="blow-sound" src="blow.mp3" preload="auto"></audio>
+    <div class="fireworks-container" id="cake-confetti"></div>
+  </section>
+  <!-- ==========================================
+       SECTION 3: DOĞUM GÜNÜ & SPOTIFY
+       ========================================== -->
+  <section class="section spotify-section" data-section-index="3">
     <div class="zoom-in-container">
       <div class="letter-card">
         <div class="card-badge"><i class="fas fa-ghost"></i> Didişme Ortağıma</div>
@@ -1504,9 +1663,9 @@
     </div>
   </section>
   <!-- ==========================================
-       SECTION 3: ZAMAN TÜNELİ SAYAÇ
+       SECTION 4: ZAMAN TÜNELİ SAYAÇ
        ========================================== -->
-  <section class="section counter-section" data-section-index="3">
+  <section class="section counter-section" data-section-index="4">
     <div class="spin-container">
       <div class="counter-header">
         <div class="card-badge"><i class="fas fa-hourglass-half"></i> Kronometre</div>
@@ -1534,9 +1693,9 @@
     </div>
   </section>
   <!-- ==========================================
-       SECTION 4: DİJİTAL YEMEK DATE'İ
+       SECTION 5: DİJİTAL YEMEK DATE'İ
        ========================================== -->
-  <section class="section food-section" data-section-index="4">
+  <section class="section food-section" data-section-index="5">
     <div class="food-container">
       <div class="counter-header">
         <div class="card-badge"><i class="fas fa-hamburger"></i> Dijital Menü</div>
@@ -1576,9 +1735,9 @@
     <audio id="slurp-sound" src="slurp.MP3" preload="auto"></audio>
   </section>
   <!-- ==========================================
-       SECTION 5: KİM BENİ NE KADAR TANIYOR? (QUIZ)
+       SECTION 6: KİM BENİ NE KADAR TANIYOR? (QUIZ)
        ========================================== -->
-  <section class="section quiz-section" data-section-index="5">
+  <section class="section quiz-section" data-section-index="6">
     <div class="quiz-container">
       <div class="quiz-header">
         <div class="card-badge"><i class="fas fa-brain"></i> Mini Test</div>
@@ -1629,7 +1788,7 @@
         </p>
         <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
           <button class="refill-btn show" onclick="resetQuiz()" style="margin-top: 0; width: auto; padding: 0.8rem 2rem;">Tekrar Çöz 🔄</button>
-          <button class="quiz-next-btn show" onclick="scrollToSection(6)" style="margin-top: 0; width: auto; padding: 0.8rem 2rem;">Kanıta Bakalım <i class="fas fa-arrow-right"></i></button>
+          <button class="quiz-next-btn show" onclick="scrollToSection(7)" style="margin-top: 0; width: auto; padding: 0.8rem 2rem;">Kanıta Bakalım <i class="fas fa-arrow-right"></i></button>
         </div>
       </div>
     </div>
@@ -1637,9 +1796,9 @@
     <div class="fireworks-container" id="quiz-confetti"></div>
   </section>
   <!-- ==========================================
-       SECTION 6: SOHBET LOGU (İLK GÜNÜN ANISI)
+       SECTION 7: SOHBET LOGU (İLK GÜNÜN ANISI)
        ========================================== -->
-  <section class="section chat-section" data-section-index="6">
+  <section class="section chat-section" data-section-index="7">
     <div class="chat-wrapper">
       <div class="chat-container">
         <div class="chat-header">
@@ -1660,14 +1819,14 @@
       </div>
       <!-- Footer Nav Button -->
       <div style="text-align: center; margin-top: 2.5rem; z-index: 10;">
-        <button class="quiz-next-btn show" onclick="scrollToSection(7)" style="width: auto; padding: 0.8rem 2rem;">Kelimelerimize Bakalım <i class="fas fa-arrow-right"></i></button>
+        <button class="quiz-next-btn show" onclick="scrollToSection(8)" style="width: auto; padding: 0.8rem 2rem;">Kelimelerimize Bakalım <i class="fas fa-arrow-right"></i></button>
       </div>
     </div>
   </section>
   <!-- ==========================================
-       SECTION 7: EN ÇOK KULLANDIKLARIMIZ (KELİME DÜNYASI)
+       SECTION 8: EN ÇOK KULLANDIKLARIMIZ (KELİME DÜNYASI)
        ========================================== -->
-  <section class="section words-section" data-section-index="7">
+  <section class="section words-section" data-section-index="8">
     <div class="words-container">
       <div class="words-header">
         <div class="card-badge"><i class="fas fa-tags"></i> Kelime Dünyası</div>
@@ -1691,14 +1850,14 @@
       </div>
       <!-- Footer Nav Button -->
       <div style="text-align: center; margin-top: 3.5rem; z-index: 10;">
-        <button class="quiz-next-btn show" onclick="scrollToSection(8)" style="width: auto; padding: 0.8rem 2rem;">Sinema Vakti 🎬</button>
+        <button class="quiz-next-btn show" onclick="scrollToSection(9)" style="width: auto; padding: 0.8rem 2rem;">Sinema Vakti 🎬</button>
       </div>
     </div>
   </section>
   <!-- ==========================================
-       SECTION 8: SİNEMA / İZLEME SEANSI
+       SECTION 9: SİNEMA / İZLEME SEANSI
        ========================================== -->
-  <section class="section cinema-section" data-section-index="8">
+  <section class="section cinema-section" data-section-index="9">
     <div class="cinema-container">
       <div class="cinema-header">
         <div class="card-badge"><i class="fas fa-film"></i> Sinema Seansı</div>
@@ -1743,14 +1902,14 @@
       </div>
       <!-- Footer Nav Button -->
       <div style="text-align: center; margin-top: 3.5rem; z-index: 10;">
-        <button class="quiz-next-btn show" onclick="scrollToSection(9)" style="width: auto; padding: 0.8rem 2rem;">Kahve Date'ine Geç ☕</button>
+        <button class="quiz-next-btn show" onclick="scrollToSection(10)" style="width: auto; padding: 0.8rem 2rem;">Kahve Date'ine Geç ☕</button>
       </div>
     </div>
   </section>
   <!-- ==========================================
-       SECTION 9: KAHVE DATE'İ
+       SECTION 10: KAHVE DATE'İ
        ========================================== -->
-  <section class="section coffee-section" data-section-index="9">
+  <section class="section coffee-section" data-section-index="10">
     <div class="coffee-container">
       <div class="counter-header">
         <div class="card-badge"><i class="fas fa-coffee"></i> Kahve Molası</div>
@@ -1788,14 +1947,14 @@
       </div>
       <!-- Footer Nav Button -->
       <div style="text-align: center; margin-top: 3.5rem; z-index: 10;">
-        <button class="quiz-next-btn show" onclick="scrollToSection(10)" style="width: auto; padding: 0.8rem 2rem;">Fenerbahçe Bölümü 💛💙</button>
+        <button class="quiz-next-btn show" onclick="scrollToSection(11)" style="width: auto; padding: 0.8rem 2rem;">Fenerbahçe Bölümü 💛💙</button>
       </div>
     </div>
   </section>
   <!-- ==========================================
-       SECTION 10: FENERBAHÇE ÖZEL BÖLÜMÜ
+       SECTION 11: FENERBAHÇE ÖZEL BÖLÜMÜ
        ========================================== -->
-  <section class="section fb-section" data-section-index="10">
+  <section class="section fb-section" data-section-index="11">
     <div class="fb-container">
       <div class="fb-header">
         <div class="fb-badge"><i class="fas fa-star"></i> Sarı Lacivert Sevda</div>
@@ -1820,14 +1979,14 @@
       <div class="fireworks-container" id="fireworks"></div>
       <!-- Footer Nav Button -->
       <div style="text-align: center; margin-top: 2.5rem; z-index: 10;">
-        <button class="quiz-next-btn show" onclick="scrollToSection(11)" style="width: auto; padding: 0.8rem 2rem; background: linear-gradient(90deg, var(--fb-yellow) 0%, #ffbb00 100%); color: var(--fb-navy); box-shadow: 0 5px 20px rgba(255, 230, 0, 0.3);">Eve Dönüş Vakti 🚗</button>
+        <button class="quiz-next-btn show" onclick="scrollToSection(12)" style="width: auto; padding: 0.8rem 2rem; background: linear-gradient(90deg, var(--fb-yellow) 0%, #ffbb00 100%); color: var(--fb-navy); box-shadow: 0 5px 20px rgba(255, 230, 0, 0.3);">Eve Dönüş Vakti 🚗</button>
       </div>
     </div>
   </section>
   <!-- ==========================================
-       SECTION 11: GÜVENLİ EVE DÖNÜŞ (KAPANIŞ)
+       SECTION 12: GÜVENLİ EVE DÖNÜŞ (KAPANIŞ)
        ========================================== -->
-  <section class="section end-section" data-section-index="11">
+  <section class="section end-section" data-section-index="12">
     <div class="end-container">
       <div class="fb-badge"><i class="fas fa-car"></i> Aktivite Sonu</div>
       <h2 class="hero-title">Güvenli Eve Dönüş 🚗✨</h2>
@@ -1837,7 +1996,7 @@
           Bütün dijital randevumuzu eksiksiz tamamladığımıza göre, şimdi seni güvenli bir şekilde evine bırakma vakti canım. Kapıya kadar geldik, bugünkü her an için teşekkürler. İyi ki doğdun, iyi ki varsın...
         </p>
         
-        <!-- NEW: Animated Drive Scene (Road, House, Car) -->
+        <!-- Animated Drive Scene (Road, House, Car) -->
         <div class="drive-scene">
           <div class="road-line"></div>
           
@@ -1865,11 +2024,11 @@
       </div>
     </div>
     
-    <!-- Confetti container for section 11 -->
+    <!-- Confetti container for section 12 -->
     <div class="fireworks-container" id="end-confetti"></div>
   </section>
   <!-- ==========================================
-       17. JAVASCRIPT LOGIC
+       18. JAVASCRIPT LOGIC
        ========================================== -->
   <script>
     /* ==========================================
@@ -1886,7 +2045,7 @@
       follower.style.top = e.clientY + 'px';
     });
     // Cursor effect on clickable elements
-    document.querySelectorAll('a, button, .clickable, iframe, img').forEach(el => {
+    document.querySelectorAll('a, button, .clickable, iframe, img, .candle').forEach(el => {
       el.addEventListener('mouseenter', () => {
         cursor.style.width = '12px';
         cursor.style.height = '12px';
@@ -2111,7 +2270,65 @@
       }
     }
     /* ==========================================
-       F. DIGITIAL YEMEK DATE'İ DYNAMICS
+       F. BIRTHDAY CAKE Mum Üfleme DYNAMICS
+       ========================================== */
+    let blownCount = 0;
+    const totalCandles = 3;
+    function blowCandle(id) {
+      const candle = document.getElementById(`candle-${id}`);
+      if (candle && !candle.classList.contains('blown')) {
+        candle.classList.add('blown');
+        blownCount++;
+        
+        // Play blowing sound
+        triggerSound('blow-sound');
+        
+        if (blownCount === totalCandles) {
+          // All candles blown!
+          document.getElementById('cake-banner').classList.add('show');
+          document.getElementById('cake-next-btn').classList.add('show');
+          
+          // Trigger confetti explosion
+          triggerCakeConfetti();
+        }
+      }
+    }
+    function triggerCakeConfetti() {
+      const container = document.getElementById('cake-confetti');
+      container.innerHTML = '';
+      
+      for (let i = 0; i < 50; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'flare-particle';
+        
+        const colors = ['#00f0ff', '#ff00aa', '#ffe600', '#c300ff', '#00ff66'];
+        const randomColor = colors[Math.floor(Math.random() * colors.length)];
+        particle.style.background = `radial-gradient(circle, ${randomColor} 0%, rgba(255,255,255,0) 70%)`;
+        
+        const xPos = Math.random() * 100;
+        particle.style.left = xPos + '%';
+        
+        const size = Math.random() * 12 + 6;
+        particle.style.width = size + 'px';
+        particle.style.height = size + 'px';
+        
+        particle.style.bottom = '10%';
+        
+        const duration = Math.random() * 2.0 + 1.5;
+        particle.style.animation = `riseFade ${duration}s cubic-bezier(0.1, 0.8, 0.2, 1) forwards`;
+        
+        const sway = (Math.random() - 0.5) * 200;
+        particle.style.setProperty('--sway', sway + 'px');
+        
+        container.appendChild(particle);
+        
+        setTimeout(() => {
+          particle.remove();
+        }, duration * 1000);
+      }
+    }
+    /* ==========================================
+       G. DIGITIAL YEMEK DATE'İ DYNAMICS
        ========================================== */
     let burgerStage = 0;
     let colaStage = 0;
@@ -2190,7 +2407,7 @@
       updateColaUI();
     }
     /* ==========================================
-       G. KAHVE DATE'İ DYNAMICS
+       H. KAHVE DATE'İ DYNAMICS
        ========================================== */
     let coffeeStages = {
       sudis: 0,
@@ -2258,7 +2475,7 @@
       updateCoffeeUI(who);
     }
     /* ==========================================
-       H. KİM BENİ NE KADAR TANIYOR? (QUIZ)
+       I. KİM BENİ NE KADAR TANIYOR? (QUIZ)
        ========================================== */
     const quizAnswers = {
       1: 'D',
@@ -2400,7 +2617,7 @@
       }
     }
     /* ==========================================
-       I. KELİME DÜNYASI CLICK MECHANISM (GAME)
+       J. KELİME DÜNYASI CLICK MECHANISM (GAME)
        ========================================== */
     function clickWordBubble(bubble) {
       const type = bubble.dataset.wordType;
@@ -2413,7 +2630,7 @@
       }
     }
     /* ==========================================
-       J. SİNEMA / İZLEME SEANSI DATE SELECTION
+       K. SİNEMA / İZLEME SEANSI DATE SELECTION
        ========================================== */
     function selectMovie(movieId, cardElement) {
       const section = cardElement.closest('.cinema-section');
@@ -2424,10 +2641,9 @@
       
       cardElement.classList.add('selected');
       cardElement.querySelector('.movie-select-btn').innerText = "Seçildi! 🎬";
-      // This is completely silent now, no audio trigger!
     }
     /* ==========================================
-       K. FENERBAHÇE ÖZEL MEŞALE EFFECTS
+       L. FENERBAHÇE ÖZEL MEŞALE EFFECTS
        ========================================== */
     let flareEmitterInterval = null;
     function igniteStadium() {
@@ -2484,7 +2700,7 @@
       }, duration * 1000);
     }
     /* ==========================================
-       L. SECTION 11 exitCar CONFETTI & CAR DRIVE ANIMATION
+       M. SECTION 12 exitCar CONFETTI & CAR DRIVE ANIMATION
        ========================================== */
     function exitCar() {
       const btn = document.getElementById('exit-btn');
@@ -2503,7 +2719,6 @@
       const sceneWidth = scene.clientWidth;
       
       // Offset so the car parks right in front of the house
-      // Car is at left: 15px, house is at right: 15px. House width is 65px. Car width is 50px.
       const travelDistance = sceneWidth - 110; 
       
       // Trigger car translation
@@ -2536,7 +2751,7 @@
     }
     function triggerEndConfetti() {
       const container = document.getElementById('end-confetti');
-      container.innerHTML = ''; // Clear previous if any
+      container.innerHTML = '';
       
       for (let i = 0; i < 60; i++) {
         const particle = document.createElement('div');
