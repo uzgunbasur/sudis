@@ -1574,6 +1574,61 @@
       opacity: 1;
       transform: perspective(1000px) rotateX(0deg) translateY(0);
     }
+
+    /* NEW: Drive scene styles for Section 11 */
+    .drive-scene {
+      position: relative;
+      width: 100%;
+      height: 120px;
+      margin: 2rem 0;
+      overflow: visible;
+    }
+    .road-line {
+      position: absolute;
+      bottom: 15px;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: var(--neon-blue);
+      box-shadow: var(--neon-blue-glow);
+      border-radius: 2px;
+    }
+    .neon-house {
+      position: absolute;
+      bottom: 15px;
+      right: 15px;
+      z-index: 2;
+    }
+    .neon-car {
+      position: absolute;
+      bottom: 12px;
+      left: 15px;
+      z-index: 3;
+      transition: transform 2.5s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+    .rising-heart {
+      position: absolute;
+      font-size: 2.2rem;
+      z-index: 10;
+      filter: drop-shadow(0 0 10px #ff007f);
+      animation: floatUpHeart 2s ease-out forwards;
+      pointer-events: none;
+    }
+
+    @keyframes floatUpHeart {
+      0% {
+        transform: translateY(0) scale(0.8);
+        opacity: 0;
+      }
+      55% {
+        transform: translateY(-10px) scale(1.2);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-90px) scale(1);
+        opacity: 0;
+      }
+    }
   </style>
 </head>
 <body>
@@ -1631,7 +1686,7 @@
       </div>
       
       <div class="spotify-card">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/7orS6gYjXQzSAtA7SAn6u8?utm_source=generator&theme=1&autoplay=1" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        <iframe src="https://open.spotify.com/embed/track/7orS6gYjXQzSAtA7SAn6u8?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" style="border-radius: 12px; border: 1px solid #00f0ff; box-shadow: 0 0 15px #00f0ff;"></iframe>
       </div>
     </div>
   </section>
@@ -1983,11 +2038,29 @@
           Bütün dijital randevumuzu eksiksiz tamamladığımıza göre, şimdi seni güvenli bir şekilde evine bırakma vakti canım. Kapıya kadar geldik, bugünkü her an için teşekkürler. İyi ki doğdun, iyi ki varsın...
         </p>
         
-        <div id="exit-btn-container" style="display: flex; justify-content: center; align-items: center; min-height: 80px; margin-top: 1rem;">
-          <button class="flare-btn" id="exit-btn" onclick="exitCar()">Arabadan İn / Eve Giriş Yap</button>
+        <!-- NEW: Animated Drive Scene (Road, House, Car) -->
+        <div class="drive-scene">
+          <div class="road-line"></div>
           
-          <div id="final-message" class="fb-outro" style="display: none; opacity: 0; transition: opacity 0.8s ease; font-size: 1.3rem; font-weight: 700; text-align: center; margin-top: 0;">
-            Günün sonu. Yeni yaşın sana tüm güzellikleri getirsin canım. 💫
+          <div class="neon-house">
+            <svg viewBox="0 0 100 100" style="width: 65px; height: 65px; filter: drop-shadow(0 0 8px var(--neon-blue));">
+              <path d="M15,90 L15,45 L50,15 L85,45 L85,90 Z" fill="none" stroke="var(--neon-blue)" stroke-width="3" />
+              <rect x="35" y="55" width="30" height="35" fill="none" stroke="var(--neon-blue)" stroke-width="3" />
+              <polygon points="50,15 85,45 15,45" fill="none" stroke="var(--neon-blue)" stroke-width="3" />
+              <circle cx="50" cy="32" r="5" fill="none" stroke="var(--neon-blue)" stroke-width="2" />
+            </svg>
+          </div>
+          
+          <div class="neon-car" id="neon-car">
+            <div style="font-size: 3rem; filter: drop-shadow(0 0 8px rgba(0, 240, 255, 0.8)); transform: scaleX(-1); display: inline-block;">🚗</div>
+          </div>
+        </div>
+        
+        <div id="exit-btn-container" style="display: flex; justify-content: center; align-items: center; min-height: 80px; margin-top: 1rem;">
+          <button class="flare-btn" id="exit-btn" onclick="exitCar()">Eve Bırak 🚗</button>
+          
+          <div id="final-message" class="fb-outro" style="display: none; opacity: 0; transition: opacity 0.8s ease; font-size: 1.15rem; font-weight: 700; text-align: center; margin-top: 0; line-height: 1.8;">
+            Günün sonu. Güvenli bir şekilde evine ulaştın canım. Yeni yaşın sana tüm güzellikleri getirsin... 💫
           </div>
         </div>
       </div>
@@ -2654,25 +2727,52 @@
     }
 
     /* ==========================================
-       L. SECTION 11 exitCar CONFETTI ANIMATION
+       L. SECTION 11 exitCar CONFETTI & CAR DRIVE ANIMATION
        ========================================== */
     function exitCar() {
       const btn = document.getElementById('exit-btn');
+      const car = document.getElementById('neon-car');
       const finalMsg = document.getElementById('final-message');
       
-      // Trigger confetti
-      triggerEndConfetti();
-      
-      // Hide button and show text
+      // Disable and hide button
       btn.style.opacity = '0';
       btn.style.pointerEvents = 'none';
+      
+      // Calculate scene widths dynamically
+      const scene = document.querySelector('.drive-scene');
+      const sceneWidth = scene.clientWidth;
+      
+      // Offset so the car parks right in front of the house
+      // Car is at left: 15px, house is at right: 15px. House width is 65px. Car width is 50px.
+      const travelDistance = sceneWidth - 110; 
+      
+      // Trigger car translation
+      car.style.transform = `translateX(${travelDistance}px)`;
+      
+      // Once car finishes driving (2.5s duration)
       setTimeout(() => {
-        btn.style.display = 'none';
+        // Confetti explosion
+        triggerEndConfetti();
+        
+        // Spawn rising heart over the car
+        const heart = document.createElement('div');
+        heart.className = 'rising-heart';
+        heart.innerHTML = '❤️';
+        heart.style.left = (15 + travelDistance + 10) + 'px';
+        heart.style.bottom = '45px';
+        scene.appendChild(heart);
+        
+        // Softly reveal closing greeting
         finalMsg.style.display = 'block';
         setTimeout(() => {
           finalMsg.style.opacity = '1';
         }, 50);
-      }, 400);
+        
+        // Remove heart element after animation ends
+        setTimeout(() => {
+          heart.remove();
+        }, 2000);
+      }, 2500);
     }
 
     function triggerEndConfetti() {
@@ -2712,3 +2812,5 @@
   </script>
 </body>
 </html>
+}
+
